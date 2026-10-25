@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cirugía de Duodeno, Yeyuno e Íleon — Claudir de Jesus Kowal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#070d12;--surface:#0d151d;--surface-hi:#151e26;--line:#1b2833;--line-hi:#2c3d49;--ink:#e6f1f7;--muted:#7b93a5;--mint:#38f2c0;--amber:#ffb457;--red:#f87171;}
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;line-height:1.55;min-height:100vh;padding:0 14px 90px;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(56,242,192,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(56,242,192,.055) 1px,transparent 1px);background-size:58px 58px;-webkit-mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 72%);mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 72%)}
+  body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(700px 420px at 18% -8%, rgba(56,242,192,.16), transparent 65%),radial-gradient(650px 450px at 85% 5%, rgba(53,208,255,.12), transparent 65%),radial-gradient(600px 400px at 50% 108%, rgba(181,140,255,.10), transparent 65%)}
+  .contenedor{max-width:880px;margin:0 auto;position:relative;z-index:1}
+  .topbar{display:flex;align-items:center;padding:22px 0 0;font-size:.82rem;color:var(--muted)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);letter-spacing:-.01em;font-size:.95rem;white-space:nowrap;text-decoration:none}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(56,242,192,.7);animation:pulse 1.8s infinite;flex:0 0 auto}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,242,192,.7)}70%{box-shadow:0 0 0 12px rgba(56,242,192,0)}100%{box-shadow:0 0 0 0 rgba(56,242,192,0)}}
+  .flags{display:inline-flex;align-items:center;gap:6px;margin-left:6px;user-select:none}
+  .flags svg{width:22px;height:auto;display:block;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.5);transition:transform .25s ease}
+  .flags svg:hover{transform:scale(1.12)}
+  .volver{position:fixed;bottom:20px;left:20px;z-index:100;background:rgba(13,21,29,.92);color:var(--mint);border:1px solid rgba(56,242,192,.45);backdrop-filter:blur(12px);padding:10px 18px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.88rem;box-shadow:0 8px 24px rgba(56,242,192,.18),0 4px 14px rgba(0,0,0,.5);transition:background .2s,color .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+  .volver:hover{background:var(--mint);color:#04222b;border-color:var(--mint);transform:translateY(-2px)}
+  .volver .arrow{transition:transform .2s}
+  .volver:hover .arrow{transform:translateX(-3px)}
+  header.hero{margin-top:40px;padding:28px 26px 26px;border-radius:18px;background:linear-gradient(180deg,rgba(56,242,192,.06),rgba(56,242,192,0));border:1px solid var(--line);position:relative;overflow:hidden}
+  header.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(400px 200px at 0% 0%, rgba(56,242,192,.15), transparent 70%)}
+  .hero-kicker{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mint);border:1px solid rgba(56,242,192,.35);background:rgba(56,242,192,.06);padding:5px 12px;border-radius:999px;display:inline-block;position:relative}
+  header.hero h1{margin:14px 0 6px;font-size:1.5rem;letter-spacing:-.03em;font-weight:700;line-height:1.25;color:var(--ink);position:relative}
+  header.hero p{margin:0;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--muted);position:relative}
+  .panel{position:sticky;top:12px;z-index:20;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:rgba(13,21,29,.88);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:20px 0;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.04em}
+  .panel .marcador{color:var(--mint);font-weight:500}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;margin-bottom:14px;transition:border-color .25s,box-shadow .25s;position:relative}
+  .card:hover{border-color:var(--line-hi)}
+  .card.teoria{border-left:3px solid var(--mint)}
+  .card.caso{border-left:3px solid var(--amber)}
+  .cabecera{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+  .numero{background:rgba(56,242,192,.10);color:var(--mint);border:1px solid rgba(56,242,192,.30);font-size:.7rem;font-weight:700;font-family:'JetBrains Mono',monospace;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .etiqueta{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+  .etiqueta.t{background:rgba(56,242,192,.10);color:var(--mint);border:1px solid rgba(56,242,192,.25)}
+  .etiqueta.c{background:rgba(255,180,87,.10);color:var(--amber);border:1px solid rgba(255,180,87,.25)}
+  .etiqueta.materia{background:rgba(123,147,165,.08);color:var(--muted);border:1px solid var(--line)}
+  .enunciado{margin:0 0 8px;font-weight:600;font-size:1rem;color:var(--ink);line-height:1.5}
+  .opciones{margin-top:10px}
+  .opcion{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:8px;font-family:'Space Grotesk',inherit;font-size:.92rem;color:var(--ink);cursor:pointer;transition:background .18s,border-color .18s,transform .12s}
+  .opcion:hover:not(:disabled){background:rgba(56,242,192,.04);border-color:rgba(56,242,192,.35);transform:translateX(2px)}
+  .opcion:disabled{cursor:default;opacity:.55}
+  .letra{font-weight:700;color:var(--muted);flex:0 0 auto;min-width:16px;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+  .opcion.correcta{background:rgba(56,242,192,.10);border-color:var(--mint);opacity:1;font-weight:600}
+  .opcion.correcta .letra{color:var(--mint)}
+  .opcion.incorrecta{background:rgba(248,113,113,.08);border-color:var(--red);opacity:1}
+  .opcion.incorrecta .letra{color:var(--red)}
+  .explicacion{display:none;margin-top:14px;padding:14px 16px;border-radius:10px;background:rgba(56,242,192,.05);border-left:3px solid var(--mint);font-size:.88rem;color:var(--ink);line-height:1.65}
+  .explicacion strong{color:var(--mint)}
+  .explicacion.visible{display:block;animation:aparecer .28s ease}
+  @keyframes aparecer{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+  footer{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:34px}
+  @media(max-width:560px){header.hero{padding:22px 18px 20px;border-radius:14px}header.hero h1{font-size:1.18rem}.card{padding:18px 16px 14px}.opcion{font-size:.88rem}.panel{font-size:.7rem;padding:10px 14px}.brand{font-size:.86rem}.flags svg{width:20px}.volver{bottom:14px;left:14px;padding:9px 15px;font-size:.82rem}}
+</style>
+</head>
+<body>
+
+<a href="cirugia.html" class="volver"><span class="arrow">←</span> Volver</a>
+
+<div class="contenedor">
+
+  <div class="topbar">
+    <a class="brand" href="index.html">
+      <span class="pulse"></span>
+      Claudir de Jesus Kowal
+      <span class="flags" aria-label="Brasil y Bolivia">
+        <svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Brasil">
+          <rect width="30" height="21" fill="#009c3b"/>
+          <polygon points="15,2.5 27.5,10.5 15,18.5 2.5,10.5" fill="#ffdf00"/>
+          <circle cx="15" cy="10.5" r="4.4" fill="#002776"/>
+          <path d="M10.9 9.2 Q15 7.6 19.1 9.2" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bolivia">
+          <rect width="30" height="7" fill="#d52b1e"/>
+          <rect y="7" width="30" height="7" fill="#f9e300"/>
+          <rect y="14" width="30" height="7" fill="#007934"/>
+        </svg>
+      </span>
+    </a>
+  </div>
+
+  <header class="hero">
+    <span class="hero-kicker">Cirugía · Cap. 06</span>
+    <h1>Cirugía de Duodeno, Yeyuno e Íleon</h1>
+    <p>Obstrucción · Isquemia · Crohn · Intestino corto · Trauma</p>
+  </header>
+
+  <div class="panel">
+    <span class="marcador" id="marcador">Respondidas: 0 / 0 · Aciertos: 0</span>
+  </div>
+
+  <div id="quiz"></div>
+  <footer>Selecciona una opción para ver la explicación inmediata.</footer>
+
+</div>
+
+<script>
+const preguntas = [
+
+{ cat:"Anatomia", tipo:"teoria",
+  q:"¿Cuál es la longitud aproximada del intestino delgado en el adulto?",
+  ops:["3-4 metros",
+       "6-7 metros",
+       "10-12 metros",
+       "1,5 metros"],
+  ok:1,
+  exp:"O intestino delgado mede aproximadamente 6-7 metros no adulto, dividido em duodeno (~25 cm), jejuno (~2,5 m) e íleo (~3,5 m). É o principal local de digestão e absorção de nutrientes." },
+
+{ cat:"Anatomia", tipo:"teoria",
+  q:"¿Cuál es la función principal do duodeno na digestão?",
+  ops:["Absorção de vitaminas lipossolúveis",
+       "Receber a bile e o suco pancreático, neutralizando o quimo ácido",
+       "Produzir enzimas digestivas próprias",
+       "Absorver a vitamina B12"],
+  ok:1,
+  exp:"O duodeno recebe a bile (pela ampola de Vater) e o suco pancreático (pelo ducto de Wirsung), neutralizando o quimo ácido e permitindo a ação das enzimas pancreáticas. É também onde ocorre a maior parte da digestão química." },
+
+{ cat:"Obstrução intestinal", tipo:"teoria",
+  q:"¿Cuál es la causa mais comum de obstrução do intestino delgado no adulto?",
+  ops:["Aderências (bridas) pós-operatórias",
+       "Hérnia estrangulada",
+       "Neoplasia",
+       "Intussuscepção"],
+  ok:0,
+  exp:"Aderências (bridas) pós-operatórias são a causa mais comum de obstrução do intestino delgado em adultos, especialmente em pacientes com cirurgia abdominal prévia. Hérnia estrangulada e neoplasias são as próximas mais frequentes." },
+
+{ cat:"Obstrução intestinal", tipo:"caso",
+  q:"Paciente de 55 anos, com cirurgia abdominal prévia, apresenta dor em cólica, vômitos, distensão e parada de eliminação de flatos. Radiografia: níveis hidroaéreos. Qual é o diagnóstico e a conduta inicial?",
+  ops:["Obstrução intestinal - descompressão nasogástrica, hidratação e observação",
+       "Apendicite - apendicectomia",
+       "Pancreatite - jejum",
+       "Úlcera perfurada - cirurgia"],
+  ok:0,
+  exp:"Obstrução intestinal por bridas: conduta inicial é conservadora (descompressão nasogástrica, hidratação, correção de eletrólitos). Cirurgia é indicada em sinais de sofrimento (febre, irritação peritoneal, leucocitose, acidose) ou falha do tratamento conservador em 24-48h." },
+
+{ cat:"Isquemia mesentérica", tipo:"teoria",
+  q:"¿Cuál é o achado clínico clássico da isquemia mesentérica aguda?",
+  ops:["Dor abdominal intensa desproporcional ao exame físico",
+       "Dor em hipocôndrio direito com sinal de Murphy",
+       "Dor em cólica com parada de eliminação de fezes",
+       "Diarreia sanguinolenta com febre"],
+  ok:0,
+  exp:"A isquemia mesentérica aguda apresenta dor abdominal intensa e desproporcional ao exame físico (abdome inicialmente flácido), geralmente em idoso com fibrilação atrial ou aterosclerose. Angio-TC é o exame de escolha." },
+
+{ cat:"Isquemia mesentérica", tipo:"caso",
+  q:"Paciente de 72 anos, com fibrilação atrial, apresenta dor abdominal intensa desproporcional ao exame físico e acidose metabólica. Angio-TC: oclusão da artéria mesentérica superior. Qual é a conduta?",
+  ops:["Cirurgia de urgência (revascularização + ressecção de alça necrosada)",
+       "Antibiótico isolado",
+       "Analgésico e observação",
+       "Apenas anticoagulação"],
+  ok:0,
+  exp:"Isquemia mesentérica aguda por oclusão da AMS é uma emergência cirúrgica. Conduta: laparotomia (ou laparoscopia) com revascularização (embolectomia ou bypass) + ressecção do segmento necrosado + anticoagulação. Mortalidade alta." },
+
+{ cat:"Doença de Crohn", tipo:"teoria",
+  q:"¿Cuál é a principal diferença entre a doença de Crohn e a retocolite ulcerativa?",
+  ops:["Crohn afeta todo o trato gastrointestinal (da boca ao ânus) e poupa o reto; RCU afeta apenas o cólon e sempre o reto",
+       "São a mesma doença",
+       "Crohn afeta apenas o cólon; RCU afeta todo o intestino",
+       "Crohn nunca causa fístulas"],
+  ok:0,
+  exp:"A doença de Crohn pode afetar qualquer segmento do trato gastrointestinal (da boca ao ânus), com inflamação transmural e áreas de sparing. A retocolite ulcerativa afeta apenas o cólon (contínuo desde o reto, sem poupar)." },
+
+{ cat:"Doença de Crohn", tipo:"caso",
+  q:"Paciente de 30 anos, com diarreia crônica, dor abdominal em cólica, perda de peso e fístula perianal. Colonoscopia: lesões descontínuas em íleo terminal e cólon. Qual é o diagnóstico?",
+  ops:["Doença de Crohn",
+       "Retocolite ulcerativa",
+       "Doença celíaca",
+       "Síndrome do intestino irritável"],
+  ok:0,
+  exp:"Doença de Crohn: inflamação transmural, lesões descontínuas (skip lesions), acometimento do íleo terminal e do cólon, fístulas, estenoses. O tratamento inclui mesalazina, corticoide, imunossupressores e biológicos (anti-TNF)." },
+
+{ cat:"Doença de Crohn", tipo:"teoria",
+  q:"¿Cuál é a principal indicação cirúrgica na doença de Crohn?",
+  ops:["Falha do tratamento clínico, complicações (fístula, estenose, abscesso, perfuração, câncer)",
+       "Apenas estética",
+       "Apenas para reduzir a dose de medicamentos",
+       "Profilática em todos os pacientes"],
+  ok:0,
+  exp:"A cirurgia na doença de Crohn é indicada em complicações (fístulas, estenoses, abscessos, perfuração, sangramento grave, câncer) ou falha do tratamento clínico. A cirurgia não cura a doença e deve ser o mais conservadora possível (ressecção limitada)." },
+
+{ cat:"Retocolite ulcerativa", tipo:"caso",
+  q:"Paciente de 40 anos, com diarreia sanguinolenta crônica, urgência defecatória, tenesmo e muco nas fezes. Colonoscopia: inflamação contínua desde o reto. Qual é o diagnóstico e o risco a longo prazo?",
+  ops:["Retocolite ulcerativa - risco aumentado de câncer colorretal",
+       "Doença de Crohn - sem risco de câncer",
+       "Diverticulite - sem risco de câncer",
+       "Colite pseudomembranosa - sem risco de câncer"],
+  ok:0,
+  exp:"A retocolite ulcerativa é uma doença inflamatória crônica do cólon, com risco aumentado de câncer colorretal após 8-10 anos de doença. O rastreamento com colonoscopia com biópsias é recomendado. Em casos refratários ou com displasia, a colectomia é indicada." },
+
+{ cat:"Tumor carcinoide", tipo:"caso",
+  q:"Paciente de 60 anos, com rubor facial, diarreia, broncoespasmo e lesão hepática metastática. Dosagem de 5-HIAA urinário elevada. Qual é o diagnóstico?",
+  ops:["Síndrome carcinoide",
+       "Síndrome de Zollinger-Ellison",
+       "VIPoma",
+       "Feocromocitoma"],
+  ok:0,
+  exp:"Síndrome carcinoide: tumor neuroendócrino (geralmente do intestino delgado) produtor de serotonina, com metástases hepáticas. Sintomas: rubor facial, diarreia, broncoespasmo, lesões cardíacas direita. Diagnóstico: 5-HIAA urinário elevado. Tratamento: octreotídeo." },
+
+{ cat:"Intestino curto", tipo:"caso",
+  q:"Paciente de 45 anos, com ressecção extensa do intestino delgado (85%) por isquemia mesentérica. Apresenta diarreia crônica, desnutrição e deficiência de vitaminas lipossolúveis. Qual é o diagnóstico?",
+  ops:["Síndrome do intestino curto",
+       "Doença celíaca",
+       "Doença de Crohn",
+       "Síndrome do intestino irritável"],
+  ok:0,
+  exp:"Síndrome do intestino curto: ressecção extensa do intestino delgado (>50-70%), com diarreia crônica, desnutrição e deficiência de vitaminas lipossolúveis e B12. Tratamento: nutrição parenteral, dieta fracionada, octreotídeo, e em casos selecionados, transplante intestinal." },
+
+{ cat:"Divertículo de Meckel", tipo:"teoria",
+  q:"¿Cuál é a apresentação clínica clássica do divertículo de Meckel sintomático em crianças?",
+  ops:["Sangramento digestivo baixo (úlcera por mucosa gástrica ectópica)",
+       "Oclusão intestinal",
+       "Diarreia crônica",
+       "Perfuração"],
+  ok:0,
+  exp:"O divertículo de Meckel é uma anomalia congênita (remanescente do ducto onfalomesentérico), geralmente assintomático. Quando sintomático (geralmente em crianças), manifesta-se por sangramento digestivo baixo indolor, por úlcera na mucosa gástrica ectópica adjacente." },
+
+{ cat:"Intussuscepção", tipo:"caso",
+  q:"Criança de 2 anos, com dor abdominal em cólica, fezes em 'geleia de framboesa' e massa abdominal palpável. Ultrassonografia: sinal do 'alvo'. Qual é o diagnóstico e a conduta inicial?",
+  ops:["Intussuscepção - redução hidrostática (enema) ou cirúrgica",
+       "Apendicite - apendicectomia",
+       "Diverticulite - antibiótico",
+       "Doença de Hirschsprung - cirurgia"],
+  ok:0,
+  exp:"Intussuscepção: invaginação de um segmento intestinal no segmento adjacente, causando obstrução e isquemia. Em crianças (2 meses a 2 anos), geralmente idiopática. Conduta inicial: redução hidrostática por enema (contraste ou ar). Cirurgia se falha, perfuração ou instabilidade." },
+
+{ cat:"Trauma de intestino delgado", tipo:"caso",
+  q:"Paciente de 30 anos, vítima de acidente motociclístico com trauma abdominal fechado. Apresenta instabilidade hemodinâmica, FAST positivo e irritação peritoneal. Qual é a conduta?",
+  ops:["Laparotomia exploradora imediata",
+       "Tomografia de abdome",
+       "Observação clínica",
+       "FAST repetido em 6h"],
+  ok:0,
+  exp:"Trauma abdominal fechado com instabilidade hemodinâmica, FAST positivo (líquido livre) e irritação peritoneal é indicação de laparotomia exploradora imediata. O objetivo é controlar a hemorragia e reparar lesões viscerais (sutura primária, ressecção com anastomose ou estoma)." }
+
+];
+
+const cont = document.getElementById('quiz');
+const marcador = document.getElementById('marcador');
+let respondidas = 0, aciertos = 0;
+function actualizarMarcador() { marcador.textContent = `Respondidas: ${respondidas} / ${preguntas.length} · Aciertos: ${aciertos}`; }
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+function shuffleOptions(p){const idx=p.ops.map((_,i)=>i);shuffle(idx);return {...p,ops:idx.map(i=>p.ops[i]),ok:idx.indexOf(p.ok)};}
+function responder(card,caja,exp,p,elegida){
+  if(card.dataset.respondida)return;
+  card.dataset.respondida="1";
+  caja.querySelectorAll('.opcion').forEach((b,j)=>{b.disabled=true;if(j===p.ok)b.classList.add('correcta');if(j===elegida&&elegida!==p.ok)b.classList.add('incorrecta');});
+  const acerto=elegida===p.ok;respondidas++;if(acerto)aciertos++;actualizarMarcador();
+  exp.innerHTML=`<strong>${acerto?'✅ ¡Correcto!':'❌ Respuesta incorrecta.'}</strong> ${p.exp}`;
+  exp.classList.add('visible');
+}
+function construir(){
+  cont.innerHTML="";respondidas=0;aciertos=0;actualizarMarcador();
+  const lote=preguntas.map(shuffleOptions);
+  lote.forEach((p,i)=>{
+    const card=document.createElement('div');card.className='card '+p.tipo;
+    const cab=document.createElement('div');cab.className='cabecera';
+    cab.innerHTML=`<div class="numero">${i+1}</div><span class="etiqueta ${p.tipo==='caso'?'c':'t'}">${p.tipo==='caso'?'Caso clínico':'Teoría'}</span><span class="etiqueta materia">${p.cat}</span>`;
+    card.appendChild(cab);
+    const enun=document.createElement('p');enun.className='enunciado';enun.textContent=p.q;card.appendChild(enun);
+    const caja=document.createElement('div');caja.className='opciones';
+    const exp=document.createElement('div');exp.className='explicacion';
+    p.ops.forEach((op,j)=>{const b=document.createElement('button');b.className='opcion';b.innerHTML=`<span class="letra">${'ABCD'[j]}</span><span>${op}</span>`;b.addEventListener('click',()=>responder(card,caja,exp,p,j));caja.appendChild(b);});
+    card.appendChild(caja);card.appendChild(exp);cont.appendChild(card);
+  });
+}
+construir();
+</script>
+
+</body>
+</html>
