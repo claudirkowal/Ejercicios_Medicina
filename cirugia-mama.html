@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cirugía de Mama — Claudir de Jesus Kowal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#070d12;--surface:#0d151d;--surface-hi:#151e26;--line:#1b2833;--line-hi:#2c3d49;--ink:#e6f1f7;--muted:#7b93a5;--mint:#38f2c0;--amber:#ffb457;--red:#f87171;}
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;line-height:1.55;min-height:100vh;padding:0 14px 90px;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(56,242,192,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(56,242,192,.055) 1px,transparent 1px);background-size:58px 58px;-webkit-mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 72%);mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 72%)}
+  body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(700px 420px at 18% -8%, rgba(56,242,192,.16), transparent 65%),radial-gradient(650px 450px at 85% 5%, rgba(53,208,255,.12), transparent 65%),radial-gradient(600px 400px at 50% 108%, rgba(181,140,255,.10), transparent 65%)}
+  .contenedor{max-width:880px;margin:0 auto;position:relative;z-index:1}
+  .topbar{display:flex;align-items:center;padding:22px 0 0;font-size:.82rem;color:var(--muted)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);letter-spacing:-.01em;font-size:.95rem;white-space:nowrap;text-decoration:none}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(56,242,192,.7);animation:pulse 1.8s infinite;flex:0 0 auto}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,242,192,.7)}70%{box-shadow:0 0 0 12px rgba(56,242,192,0)}100%{box-shadow:0 0 0 0 rgba(56,242,192,0)}}
+  .flags{display:inline-flex;align-items:center;gap:6px;margin-left:6px;user-select:none}
+  .flags svg{width:22px;height:auto;display:block;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.5);transition:transform .25s ease}
+  .flags svg:hover{transform:scale(1.12)}
+  .volver{position:fixed;bottom:20px;left:20px;z-index:100;background:rgba(13,21,29,.92);color:var(--mint);border:1px solid rgba(56,242,192,.45);backdrop-filter:blur(12px);padding:10px 18px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.88rem;box-shadow:0 8px 24px rgba(56,242,192,.18),0 4px 14px rgba(0,0,0,.5);transition:background .2s,color .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+  .volver:hover{background:var(--mint);color:#04222b;border-color:var(--mint);transform:translateY(-2px)}
+  .volver .arrow{transition:transform .2s}
+  .volver:hover .arrow{transform:translateX(-3px)}
+  header.hero{margin-top:40px;padding:28px 26px 26px;border-radius:18px;background:linear-gradient(180deg,rgba(56,242,192,.06),rgba(56,242,192,0));border:1px solid var(--line);position:relative;overflow:hidden}
+  header.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(400px 200px at 0% 0%, rgba(56,242,192,.15), transparent 70%)}
+  .hero-kicker{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mint);border:1px solid rgba(56,242,192,.35);background:rgba(56,242,192,.06);padding:5px 12px;border-radius:999px;display:inline-block;position:relative}
+  header.hero h1{margin:14px 0 6px;font-size:1.5rem;letter-spacing:-.03em;font-weight:700;line-height:1.25;color:var(--ink);position:relative}
+  header.hero p{margin:0;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--muted);position:relative}
+  .panel{position:sticky;top:12px;z-index:20;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:rgba(13,21,29,.88);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:20px 0;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.04em}
+  .panel .marcador{color:var(--mint);font-weight:500}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;margin-bottom:14px;transition:border-color .25s,box-shadow .25s;position:relative}
+  .card:hover{border-color:var(--line-hi)}
+  .card.teoria{border-left:3px solid var(--mint)}
+  .card.caso{border-left:3px solid var(--amber)}
+  .cabecera{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+  .numero{background:rgba(56,242,192,.10);color:var(--mint);border:1px solid rgba(56,242,192,.30);font-size:.7rem;font-weight:700;font-family:'JetBrains Mono',monospace;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .etiqueta{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+  .etiqueta.t{background:rgba(56,242,192,.10);color:var(--mint);border:1px solid rgba(56,242,192,.25)}
+  .etiqueta.c{background:rgba(255,180,87,.10);color:var(--amber);border:1px solid rgba(255,180,87,.25)}
+  .etiqueta.materia{background:rgba(123,147,165,.08);color:var(--muted);border:1px solid var(--line)}
+  .enunciado{margin:0 0 8px;font-weight:600;font-size:1rem;color:var(--ink);line-height:1.5}
+  .opciones{margin-top:10px}
+  .opcion{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:8px;font-family:'Space Grotesk',inherit;font-size:.92rem;color:var(--ink);cursor:pointer;transition:background .18s,border-color .18s,transform .12s}
+  .opcion:hover:not(:disabled){background:rgba(56,242,192,.04);border-color:rgba(56,242,192,.35);transform:translateX(2px)}
+  .opcion:disabled{cursor:default;opacity:.55}
+  .letra{font-weight:700;color:var(--muted);flex:0 0 auto;min-width:16px;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+  .opcion.correcta{background:rgba(56,242,192,.10);border-color:var(--mint);opacity:1;font-weight:600}
+  .opcion.correcta .letra{color:var(--mint)}
+  .opcion.incorrecta{background:rgba(248,113,113,.08);border-color:var(--red);opacity:1}
+  .opcion.incorrecta .letra{color:var(--red)}
+  .explicacion{display:none;margin-top:14px;padding:14px 16px;border-radius:10px;background:rgba(56,242,192,.05);border-left:3px solid var(--mint);font-size:.88rem;color:var(--ink);line-height:1.65}
+  .explicacion strong{color:var(--mint)}
+  .explicacion.visible{display:block;animation:aparecer .28s ease}
+  @keyframes aparecer{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+  footer{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:34px}
+  @media(max-width:560px){header.hero{padding:22px 18px 20px;border-radius:14px}header.hero h1{font-size:1.18rem}.card{padding:18px 16px 14px}.opcion{font-size:.88rem}.panel{font-size:.7rem;padding:10px 14px}.brand{font-size:.86rem}.flags svg{width:20px}.volver{bottom:14px;left:14px;padding:9px 15px;font-size:.82rem}}
+</style>
+</head>
+<body>
+
+<a href="cirugia.html" class="volver"><span class="arrow">←</span> Volver</a>
+
+<div class="contenedor">
+
+  <div class="topbar">
+    <a class="brand" href="index.html">
+      <span class="pulse"></span>
+      Claudir de Jesus Kowal
+      <span class="flags" aria-label="Brasil y Bolivia">
+        <svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Brasil">
+          <rect width="30" height="21" fill="#009c3b"/>
+          <polygon points="15,2.5 27.5,10.5 15,18.5 2.5,10.5" fill="#ffdf00"/>
+          <circle cx="15" cy="10.5" r="4.4" fill="#002776"/>
+          <path d="M10.9 9.2 Q15 7.6 19.1 9.2" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bolivia">
+          <rect width="30" height="7" fill="#d52b1e"/>
+          <rect y="7" width="30" height="7" fill="#f9e300"/>
+          <rect y="14" width="30" height="7" fill="#007934"/>
+        </svg>
+      </span>
+    </a>
+  </div>
+
+  <header class="hero">
+    <span class="hero-kicker">Cirugía · Cap. 02</span>
+    <h1>Cirugía de Mama</h1>
+    <p>Anatomía · Nódulo mamario · Cáncer de mama · Tratamiento · Reconstrucción</p>
+  </header>
+
+  <div class="panel">
+    <span class="marcador" id="marcador">Respondidas: 0 / 0 · Aciertos: 0</span>
+  </div>
+
+  <div id="quiz"></div>
+  <footer>Selecciona una opción para ver la explicación inmediata.</footer>
+
+</div>
+
+<script>
+const preguntas = [
+
+/* ========= ANATOMÍA (1-5) ========= */
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Hacia dónde drena principalmente la linfa de la mama?",
+  ops:["Ganglios axilares",
+       "Ganglios inguinales",
+       "Ganglios cervicales profundos",
+       "Ganglios mediastínicos posteriores"],
+  ok:0,
+  exp:"Aproximadamente 75% da linfa da mama drena para os linfonodos axilares (níveis I, II e III de Berg). O restante drena para a cadeia mamária interna e, em menor proporção, para linfonodos supraclaviculares e infradiafragmáticos." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cómo se dividen quirúrgicamente los niveles de Berg de la axila?",
+  ops:["Nivel I lateral al pectoral menor; nivel II posterior al pectoral menor; nivel III medial al pectoral menor",
+       "Nivel I superior; nivel II medio; nivel III inferior",
+       "Nivel I superficial; nivel II profundo; nivel III en el cuello",
+       "No existe división quirúrgica de la axila"],
+  ok:0,
+  exp:"Níveis de Berg: nível I (lateral à borda lateral do músculo peitoral menor), nível II (entre as bordas do peitoral menor) e nível III (medial à borda medial do peitoral menor, até a borda inferior da clavícula)." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Qué nervios deben ser preservados durante la disección axilar para evitar complicaciones?",
+  ops:["Nervio torácico longo (serrátil) e toracodorsal",
+       "Nervio vago e frênico",
+       "Nervio radial e mediano",
+       "Nervio ciático e femoral"],
+  ok:0,
+  exp:"Durante o esvaziamento axilar, devem ser preservados o nervo torácico longo (de Bell), que inerva o serrátil anterior (lesão causa escápula alada), o nervo toracodorsal (dorsal largo) e o nervo intercostobraquial (sensibilidade da face medial do braço)." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cuál es la función de los ligamentos de Cooper en la mama?",
+  ops:["Suspender la glándula mamaria al tejido subcutáneo y a la fascia pectoral",
+       "Transportar la linfa",
+       "Producir leche",
+       "Irrigar la mama"],
+  ok:0,
+  exp:"Os ligamentos de Cooper (suspensores) fixam a glândula mamária ao tecido subcutâneo e à fáscia peitoral. Sua retração pelo tumor pode causar o sinal do 'peau d'orange' ou retração cutânea." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cuál es el tipo histológico más común del cáncer de mama?",
+  ops:["Carcinoma ductal infiltrante (invasivo)",
+       "Carcinoma lobulillar infiltrante",
+       "Carcinoma medular",
+       "Carcinoma inflamatorio"],
+  ok:0,
+  exp:"O carcinoma ductal invasivo (CDI) é o tipo histológico mais comum de câncer de mama (70-80%). O carcinoma lobulillar invasivo é o segundo (~10%) e tem maior propensão à multicentricidade e bilateralidade." },
+
+/* ========= NÓDULO Y DIAGNÓSTICO (6-12) ========= */
+{ cat:"Nódulo mamario", tipo:"teoria",
+  q:"¿Qué significa la 'triple evaluación' de un nódulo mamario?",
+  ops:["Examen clínico + imagen (mamografía y/o ultrasonido) + biopsia",
+       "Solo mamografía + laboratorio",
+       "Solo biopsia quirúrgica",
+       "Solo examen clínico"],
+  ok:0,
+  exp:"A tríplice avaliação (exame clínico + imagem + citologia/histologia) é o padrão para o diagnóstico do nódulo mamário. A concordância dos três métodos define conduta: benigno (seguimento), suspeito (biópsia) ou maligno (tratamento)." },
+
+{ cat:"Nódulo mamario", tipo:"teoria",
+  q:"¿Cuál es el examen de imagen inicial de elección en mujeres con menos de 35 años?",
+  ops:["Ultrassonografía mamaria",
+       "Mamografía",
+       "Ressonância magnética",
+       "Tomografía de tórax"],
+  ok:0,
+  exp:"Em mulheres jovens (<35 anos), a mama é mais densa e a ultrassonografia é o exame inicial de escolha. Em mulheres >40 anos ou com mama lipossubstituída, a mamografia é o exame de rastreamento." },
+
+{ cat:"Nódulo mamario", tipo:"teoria",
+  q:"¿Qué significa BI-RADS 5?",
+  ops:["Alta suspeita de malignidade (>95%), com indicação de biópsia",
+       "Examen normal",
+       "Achado benigno",
+       "Necessita repetir em 6 meses"],
+  ok:0,
+  exp:"BI-RADS 5 corresponde a achado altamente sugestivo de malignidade (>95%), com indicação de biópsia imediata. BI-RADS 4 é suspeito (4A/4B/4C), BI-RADS 3 é provavelmente benigno (seguimento em 6 meses)." },
+
+{ cat:"Nódulo mamario", tipo:"teoria",
+  q:"¿Cuál es el método de elección para el diagnóstico histológico de nódulo mamário?",
+  ops:["Core biopsy (biópsia por agulha grossa)",
+       "PAAF (punção aspirativa por agulha fina)",
+       "Mamografia com contraste",
+       "Exérese cirúrgica diagnóstica"],
+  ok:0,
+  exp:"A core biopsy é o padrão-ouro para o diagnóstico histológico do nódulo mamário, pois fornece material para histopatologia e imuno-histoquímica (RE, RP, HER2). A PAAF é útil em cistos e gânglios, mas não diferencia carcinoma in situ de invasivo." },
+
+{ cat:"Nódulo mamario", tipo:"caso",
+  q:"Paciente de 42 años presenta descarga sanguinolenta unilateral por el pezón, sin nódulo palpable. ¿Cuál es el diagnóstico más probable y el examen de elección?",
+  ops:["Papiloma intraductal - ductoscopia o galactografía",
+       "Câncer de mama inflamatório - PET-CT",
+       "Mastite - antibiótico",
+       "Ginecomastia - observação"],
+  ok:0,
+  exp:"Derrame papilar sanguinolento unilateral é mais comumente causado por papiloma intraductal (benigno). A galactografia e a ductoscopia ajudam a localizar a lesão; a microdochectomia (exérese do ducto) é diagnóstica e terapêutica." },
+
+{ cat:"Nódulo mamario", tipo:"teoria",
+  q:"¿Cuál es la principal limitación de la mamografía de rastreo?",
+  ops:["Alta densidade mamária reduz a sensibilidade",
+       "Alto custo apenas",
+       "Alta exposição à radiação",
+       "Não detecta microcalcificações"],
+  ok:0,
+  exp:"Em mamas densas, a mamografia tem reduzida sensibilidade (o tecido fibroglandular pode obscurecer o tumor). Por isso, a ultrassonografia é usada como complemento em mamas densas, e a RM pode ser considerada em pacientes de alto risco." },
+
+{ cat:"Nódulo mamario", tipo:"teoria",
+  q:"¿Qué significa un resultado BI-RADS 0?",
+  ops:["Evaluación incompleta, necessita de imagem adicional",
+       "Ausência de achados",
+       "Achado benigno",
+       "Altamente suspeito de malignidade"],
+  ok:0,
+  exp:"BI-RADS 0 significa avaliação incompleta, necessitando de imagens adicionais (ultrassom, ampliação, RM). É usado quando a mamografia de rastreamento não é conclusiva, mas não deve ser usado em exames de diagnóstico." },
+
+/* ========= CÁNCER DE MAMA - TEORIA (13-20) ========= */
+{ cat:"Cáncer de mama", tipo:"teoria",
+  q:"¿Cuáles son los receptores avaliados por imuno-histoquímica que orientam a terapia do câncer de mama?",
+  ops:["RE, RP e HER2",
+       "Apenas HER2",
+       "Apenas RE e RP",
+       "EGFR, KRAS e ALK"],
+  ok:0,
+  exp:"O perfil molecular do câncer de mama é definido pela expressão de RE (receptor de estrogênio), RP (receptor de progesterona) e HER2. Orienta terapia endócrina (tamoxifeno/inibidor de aromatase), anti-HER2 (trastuzumabe) e quimioterapia." },
+
+{ cat:"Cáncer de mama", tipo:"teoria",
+  q:"¿Cuáles son los subtipos moleculares do câncer de mama?",
+  ops:["Luminal A, Luminal B, HER2-enriquecido e triplo-negativo",
+       "Apenas luminal e basal",
+       "Adenocarcinoma e escamoso",
+       "Ductal e lobulillar"],
+  ok:0,
+  exp:"Subtipos: Luminal A (RE+/RP+, HER2-, Ki67 baixo - melhor prognóstico), Luminal B (RE+, HER2+/- ou Ki67 alto), HER2-enriquecido (HER2+, RE-/RP-) e triplo-negativo (RE-/RP-/HER2-, pior prognóstico, mais comum em jovens e BRCA1)." },
+
+{ cat:"Cáncer de mama", tipo:"teoria",
+  q:"¿Cuál es el principal factor de riesgo para câncer de mama?",
+  ops:["Idade avançada",
+       "Uso de desodorante",
+       "Trauma mamário",
+       "Amamentação prolongada"],
+  ok:0,
+  exp:"A idade avançada é o principal fator de risco para câncer de mama. Outros: história familiar, mutações BRCA1/2, menarca precoce, menopausa tardia, nuliparidade, obesidade, uso de terapia hormonal, consumo de álcool." },
+
+{ cat:"Cáncer de mama", tipo:"teoria",
+  q:"¿Cuál es la principal característica das mutações BRCA1 e BRCA2?",
+  ops:["Alto risco hereditário de câncer de mama e ovário",
+       "Risco apenas de câncer de pulmão",
+       "Proteção contra câncer",
+       "Não têm relação com câncer"],
+  ok:0,
+  exp:"Mutações BRCA1/2 conferem alto risco hereditário de câncer de mama (60-85% ao longo da vida) e de ovário (20-40%). Portadores podem optar por vigilância intensiva, quimioprevenção ou cirurgia profilática (mastectomia e salpingo-ooforectomia)." },
+
+{ cat:"Cáncer de mama", tipo:"caso",
+  q:"Paciente de 45 años con carcinoma ductal invasivo de 2,5 cm, axila clinicamente negativa. ¿Cuál es la conducta quirúrgica inicial?",
+  ops:["Cirugía conservadora (setorectomia) + pesquisa de linfonodo sentinela",
+       "Mastectomia radical de Halsted imediata",
+       "Apenas hormonioterapia",
+       "Radioterapia exclusiva"],
+  ok:0,
+  exp:"Câncer de mama inicial com desejo de preservação mamária: cirurgia conservadora (setorectomia/quadrantectomia) com margens livres + pesquisa de linfonodo sentinela + radioterapia adjuvante. A mastectomia é indicada em tumores grandes, multicêntricos ou por escolha da paciente." },
+
+{ cat:"Cáncer de mama", tipo:"teoria",
+  q:"¿Cuál es la indicación de pesquisa do linfonodo sentinela?",
+  ops:["Axila clinicamente negativa",
+       "Axila clinicamente positiva",
+       "Metástases à distância",
+       "Câncer inflamatório"],
+  ok:0,
+  exp:"A biópsia do linfonodo sentinela é indicada quando a axila é clinicamente negativa (exame físico e ultrassonografia). Se positiva, pode-se indicar linfadenectomia axilar (esvaziamento) ou, em casos selecionados, apenas radioterapia axilar." },
+
+{ cat:"Cáncer de mama", tipo:"teoria",
+  q:"¿Qué es la mastectomia radical modificada (Patey)?",
+  ops:["Remoção da mama e dos linfonodos axilares, preservando o músculo peitoral maior",
+       "Remoção apenas do quadrante afetado",
+       "Remoção da mama, pele e músculos peitorais",
+       "Remoção da mama e dos linfonodos mamários internos"],
+  ok:0,
+  exp:"A mastectomia radical modificada de Patey remove a mama e os linfonodos axilares (níveis I e II), preservando os músculos peitorais. A mastectomia radical clássica de Halsted remove também os músculos peitorais (raramente indicada hoje)." },
+
+{ cat:"Cáncer de mama", tipo:"teoria",
+  q:"¿Cuál es la indicação de linfadenectomia axilar completa (esvaziamento)?",
+  ops:["Axila clinicamente positiva, linfonodo sentinela positivo com indicação de esvaziamento ou falha da pesquisa",
+       "Sempre que houver diagnóstico de câncer de mama",
+       "Apenas em câncer metastático",
+       "Nunca é indicada"],
+  ok:0,
+  exp:"O esvaziamento axilar é indicado em axila clinicamente positiva (confirmada por PAAF ou core biopsy), linfonodo sentinela positivo (em casos selecionados com fatores de risco), ou falha da pesquisa do linfonodo sentinela. Não é mais realizado profilaticamente em axila negativa." },
+
+/* ========= TRATAMENTO E CIRURGIA (21-25) ========= */
+{ cat:"Tratamiento", tipo:"teoria",
+  q:"¿Cuándo está indicada a quimioterapia neoadjuvante no câncer de mama?",
+  ops:["Tumores localmente avanzados, HER2+ ou triplo-negativos, ou para reduzir o tumor e permitir cirurgia conservadora",
+       "Sempre antes da cirurgia, independente do estádio",
+       "Apenas em câncer metastático",
+       "Nunca é indicada"],
+  ok:0,
+  exp:"A quimioterapia neoadjuvante (antes da cirurgia) está indicada em: tumores localmente avançados (T3-T4 ou N+), subtipos HER2+ ou triplo-negativos (alta taxa de resposta patológica completa), ou para reduzir tumores e permitir cirurgia conservadora em mamas pequenas." },
+
+{ cat:"Tratamiento", tipo:"teoria",
+  q:"¿Cuál é o principal efeito adverso do tamoxifeno?",
+  ops:["Aumento do risco de câncer endometrial e tromboembolismo",
+       "Apenas ondas de calor",
+       "Osteoporose grave",
+       "Nefrotoxicidade"],
+  ok:0,
+  exp:"O tamoxifeno está associado a aumento do risco de câncer endometrial (~2-4x) e eventos tromboembólicos, além de ondas de calor, secura vaginal e alterações visuais. É usado em pré-menopausa com RE+ e em homens com câncer de mama." },
+
+{ cat:"Tratamiento", tipo:"teoria",
+  q:"¿Cuál es la clase de medicación de primera línea para câncer de mama HER2-positivo?",
+  ops:["Trastuzumabe (anticorpo monoclonal anti-HER2)",
+       "Tamoxifeno",
+       "Inibidor de aromatase",
+       "Cisplatina"],
+  ok:0,
+  exp:"O trastuzumabe é o anticorpo monoclonal anti-HER2 de primeira linha para câncer de mama HER2-positivo (adjuvante, neoadjuvante e metastático). Outros: pertuzumabe, T-DM1 (ado-trastuzumabe emtansina) e trastuzumabe deruxtecana." },
+
+{ cat:"Tratamiento", tipo:"caso",
+  q:"Paciente de 46 años, com carcinoma ductal invasivo de mama e indicação de mastectomia. Deseja reconstrução imediata. Qual é a melhor conduta?",
+  ops:["Mastectomia com reconstrução imediata (prótese ou retalho) após avaliação da equipe",
+       "Mastectomia sem reconstrução, sempre",
+       "Reconstrução apenas após 5 anos",
+       "Aguardar quimioterapia para decidir"],
+  ok:0,
+  exp:"A reconstrução mamária imediata (com prótese ou retalhos miocutâneos como TRAM, DIEP, dorsal largo ou retalho livre) pode ser realizada no mesmo tempo cirúrgico da mastectomia. Melhora a autoestima sem alterar o prognóstico oncológico." },
+
+{ cat:"Tratamiento", tipo:"teoria",
+  q:"¿Cuándo está indicada a hormonioterapia adjuvante no câncer de mama?",
+  ops:["Tumores com receptores hormonais (RE+ e/ou RP+)",
+       "Apenas tumores triplo-negativos",
+       "Apenas tumores HER2+",
+       "Em todos os casos, sem exceção"],
+  ok:0,
+  exp:"A hormonioterapia adjuvante (tamoxifeno ou inibidor de aromatase) está indicada em tumores com receptores hormonais positivos (RE+ e/ou RP+), com o objetivo de reduzir o risco de recidiva e mortalidade. Duração: 5-10 anos." },
+
+/* ========= CASOS CLÍNICOS (26-28) ========= */
+{ cat:"Casos clínicos", tipo:"caso",
+  q:"Mujer de 58 años con mama derecha eritematosa, edema (casca de laranja), calor e rápido crescimento há 3 meses. Biopsy: carcinoma ductal invasivo. ¿Cuál es el diagnóstico y la conducta?",
+  ops:["Câncer de mama inflamatório - quimioterapia neoadjuvante, seguida de mastectomia e radioterapia",
+       "Mastite - antibiótico isolado",
+       "Câncer inicial - cirurgia conservadora imediata",
+       "Doença de Paget - cirurgia conservadora"],
+  ok:0,
+  exp:"Câncer de mama inflamatório é uma forma agressiva, com pele eritematosa, edema (casca de laranja) e rápido crescimento. É frequentemente diagnosticado em estágio avançado. Conduta: quimioterapia neoadjuvante, seguida de mastectomia e radioterapia (não se faz cirurgia conservadora)." },
+
+{ cat:"Casos clínicos", tipo:"caso",
+  q:"Paciente de 55 años con eczema crônico en el pezón derecho, prurito, descamación y ulceración. Biopsia: células de Paget. ¿Cuál es el diagnóstico y la conducta?",
+  ops:["Doença de Paget do mamilo - investigar carcinoma ductal subjacente e tratar cirurgicamente",
+       "Dermatite de contato - corticoide",
+       "Mastite - antibiótico",
+       "Papiloma intraductal - exérese"],
+  ok:0,
+  exp:"A doença de Paget do mamilo é uma manifestação cutânea do carcinoma ductal (geralmente in situ ou invasivo) subjacente. Apresenta-se como eczema crônico do mamilo (prurido, descamação, ulceração). Conduta: biópsia + investigação de carcinoma subjacente + cirurgia (mastectomia ou cirurgia conservadora)." },
+
+{ cat:"Casos clínicos", tipo:"caso",
+  q:"Paciente de 62 años con nódulo retroareolar, ginecomastia unilateral e descarga papilar. Biopsia: carcinoma ductal invasivo. ¿Cuál es a conduta?",
+  ops:["Câncer de mama masculino - mastectomia com pesquisa de linfonodo sentinela (ou esvaziamento)",
+       "Apenas observação",
+       "Apenas hormonioterapia",
+       "Apenas cirurgia conservadora"],
+  ok:0,
+  exp:"O câncer de mama masculino é raro (~1% dos casos), geralmente RE+ e ductal invasivo. Tratamento: mastectomia (a cirurgia conservadora raramente é viável pela pequena quantidade de tecido mamário) + avaliação axilar + hormonioterapia adjuvante (tamoxifeno)." }
+
+];
+
+/* ========= LÓGICA ========= */
+const cont = document.getElementById('quiz');
+const marcador = document.getElementById('marcador');
+let respondidas = 0, aciertos = 0;
+
+function actualizarMarcador() {
+  marcador.textContent = `Respondidas: ${respondidas} / ${preguntas.length} · Aciertos: ${aciertos}`;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function shuffleOptions(p) {
+  const idx = p.ops.map((_, i) => i);
+  shuffle(idx);
+  return { ...p, ops: idx.map(i => p.ops[i]), ok: idx.indexOf(p.ok) };
+}
+
+function responder(card, caja, exp, p, elegida) {
+  if (card.dataset.respondida) return;
+  card.dataset.respondida = "1";
+  caja.querySelectorAll('.opcion').forEach((b, j) => {
+    b.disabled = true;
+    if (j === p.ok) b.classList.add('correcta');
+    if (j === elegida && elegida !== p.ok) b.classList.add('incorrecta');
+  });
+  const acerto = elegida === p.ok;
+  respondidas++;
+  if (acerto) aciertos++;
+  actualizarMarcador();
+  exp.innerHTML = `<strong>${acerto ? '✅ ¡Correcto!' : '❌ Respuesta incorrecta.'}</strong> ${p.exp}`;
+  exp.classList.add('visible');
+}
+
+function construir() {
+  cont.innerHTML = "";
+  respondidas = 0; aciertos = 0;
+  actualizarMarcador();
+
+  const lote = preguntas.map(shuffleOptions);
+
+  lote.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'card ' + p.tipo;
+
+    const cab = document.createElement('div');
+    cab.className = 'cabecera';
+    cab.innerHTML =
+      `<div class="numero">${i + 1}</div>
+       <span class="etiqueta ${p.tipo === 'caso' ? 'c' : 't'}">
+         ${p.tipo === 'caso' ? 'Caso clínico' : 'Teoría'}
+       </span>
+       <span class="etiqueta materia">${p.cat}</span>`;
+    card.appendChild(cab);
+
+    const enun = document.createElement('p');
+    enun.className = 'enunciado';
+    enun.textContent = p.q;
+    card.appendChild(enun);
+
+    const caja = document.createElement('div');
+    caja.className = 'opciones';
+    const exp = document.createElement('div');
+    exp.className = 'explicacion';
+
+    p.ops.forEach((op, j) => {
+      const b = document.createElement('button');
+      b.className = 'opcion';
+      b.innerHTML = `<span class="letra">${'ABCD'[j]}</span><span>${op}</span>`;
+      b.addEventListener('click', () => responder(card, caja, exp, p, j));
+      caja.appendChild(b);
+    });
+
+    card.appendChild(caja);
+    card.appendChild(exp);
+    cont.appendChild(card);
+  });
+
+  /* Diagnóstico de patrones en consola */
+  const letras = {A:0, B:0, C:0, D:0};
+  lote.forEach(p => { letras['ABCD'[p.ok]]++; });
+  console.log('=== Distribución de ESTA sesión ===');
+  console.log('Correctas por letra:', letras);
+}
+
+construir();
+</script>
+
+</body>
+</html>
