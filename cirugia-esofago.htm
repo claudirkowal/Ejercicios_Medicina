@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cirugía de Esófago — Claudir de Jesus Kowal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#070d12;--surface:#0d151d;--surface-hi:#151e26;--line:#1b2833;--line-hi:#2c3d49;--ink:#e6f1f7;--muted:#7b93a5;--mint:#38f2c0;--amber:#ffb457;--red:#f87171;}
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;line-height:1.55;min-height:100vh;padding:0 14px 90px;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(56,242,192,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(56,242,192,.055) 1px,transparent 1px);background-size:58px 58px;-webkit-mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 72%);mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 72%)}
+  body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(700px 420px at 18% -8%, rgba(56,242,192,.16), transparent 65%),radial-gradient(650px 450px at 85% 5%, rgba(53,208,255,.12), transparent 65%),radial-gradient(600px 400px at 50% 108%, rgba(181,140,255,.10), transparent 65%)}
+  .contenedor{max-width:880px;margin:0 auto;position:relative;z-index:1}
+  .topbar{display:flex;align-items:center;padding:22px 0 0;font-size:.82rem;color:var(--muted)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);letter-spacing:-.01em;font-size:.95rem;white-space:nowrap;text-decoration:none}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(56,242,192,.7);animation:pulse 1.8s infinite;flex:0 0 auto}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,242,192,.7)}70%{box-shadow:0 0 0 12px rgba(56,242,192,0)}100%{box-shadow:0 0 0 0 rgba(56,242,192,0)}}
+  .flags{display:inline-flex;align-items:center;gap:6px;margin-left:6px;user-select:none}
+  .flags svg{width:22px;height:auto;display:block;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.5);transition:transform .25s ease}
+  .flags svg:hover{transform:scale(1.12)}
+  .volver{position:fixed;bottom:20px;left:20px;z-index:100;background:rgba(13,21,29,.92);color:var(--mint);border:1px solid rgba(56,242,192,.45);backdrop-filter:blur(12px);padding:10px 18px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.88rem;box-shadow:0 8px 24px rgba(56,242,192,.18),0 4px 14px rgba(0,0,0,.5);transition:background .2s,color .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+  .volver:hover{background:var(--mint);color:#04222b;border-color:var(--mint);transform:translateY(-2px)}
+  .volver .arrow{transition:transform .2s}
+  .volver:hover .arrow{transform:translateX(-3px)}
+  header.hero{margin-top:40px;padding:28px 26px 26px;border-radius:18px;background:linear-gradient(180deg,rgba(56,242,192,.06),rgba(56,242,192,0));border:1px solid var(--line);position:relative;overflow:hidden}
+  header.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(400px 200px at 0% 0%, rgba(56,242,192,.15), transparent 70%)}
+  .hero-kicker{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mint);border:1px solid rgba(56,242,192,.35);background:rgba(56,242,192,.06);padding:5px 12px;border-radius:999px;display:inline-block;position:relative}
+  header.hero h1{margin:14px 0 6px;font-size:1.5rem;letter-spacing:-.03em;font-weight:700;line-height:1.25;color:var(--ink);position:relative}
+  header.hero p{margin:0;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--muted);position:relative}
+  .panel{position:sticky;top:12px;z-index:20;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:rgba(13,21,29,.88);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:20px 0;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.04em}
+  .panel .marcador{color:var(--mint);font-weight:500}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;margin-bottom:14px;transition:border-color .25s,box-shadow .25s;position:relative}
+  .card:hover{border-color:var(--line-hi)}
+  .card.teoria{border-left:3px solid var(--mint)}
+  .card.caso{border-left:3px solid var(--amber)}
+  .cabecera{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+  .numero{background:rgba(56,242,192,.10);color:var(--mint);border:1px solid rgba(56,242,192,.30);font-size:.7rem;font-weight:700;font-family:'JetBrains Mono',monospace;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .etiqueta{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+  .etiqueta.t{background:rgba(56,242,192,.10);color:var(--mint);border:1px solid rgba(56,242,192,.25)}
+  .etiqueta.c{background:rgba(255,180,87,.10);color:var(--amber);border:1px solid rgba(255,180,87,.25)}
+  .etiqueta.materia{background:rgba(123,147,165,.08);color:var(--muted);border:1px solid var(--line)}
+  .enunciado{margin:0 0 8px;font-weight:600;font-size:1rem;color:var(--ink);line-height:1.5}
+  .opciones{margin-top:10px}
+  .opcion{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:8px;font-family:'Space Grotesk',inherit;font-size:.92rem;color:var(--ink);cursor:pointer;transition:background .18s,border-color .18s,transform .12s}
+  .opcion:hover:not(:disabled){background:rgba(56,242,192,.04);border-color:rgba(56,242,192,.35);transform:translateX(2px)}
+  .opcion:disabled{cursor:default;opacity:.55}
+  .letra{font-weight:700;color:var(--muted);flex:0 0 auto;min-width:16px;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+  .opcion.correcta{background:rgba(56,242,192,.10);border-color:var(--mint);opacity:1;font-weight:600}
+  .opcion.correcta .letra{color:var(--mint)}
+  .opcion.incorrecta{background:rgba(248,113,113,.08);border-color:var(--red);opacity:1}
+  .opcion.incorrecta .letra{color:var(--red)}
+  .explicacion{display:none;margin-top:14px;padding:14px 16px;border-radius:10px;background:rgba(56,242,192,.05);border-left:3px solid var(--mint);font-size:.88rem;color:var(--ink);line-height:1.65}
+  .explicacion strong{color:var(--mint)}
+  .explicacion.visible{display:block;animation:aparecer .28s ease}
+  @keyframes aparecer{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+  footer{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:34px}
+  @media(max-width:560px){header.hero{padding:22px 18px 20px;border-radius:14px}header.hero h1{font-size:1.18rem}.card{padding:18px 16px 14px}.opcion{font-size:.88rem}.panel{font-size:.7rem;padding:10px 14px}.brand{font-size:.86rem}.flags svg{width:20px}.volver{bottom:14px;left:14px;padding:9px 15px;font-size:.82rem}}
+</style>
+</head>
+<body>
+
+<a href="cirugia.html" class="volver"><span class="arrow">←</span> Volver</a>
+
+<div class="contenedor">
+
+  <div class="topbar">
+    <a class="brand" href="index.html">
+      <span class="pulse"></span>
+      Claudir de Jesus Kowal
+      <span class="flags" aria-label="Brasil y Bolivia">
+        <svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Brasil">
+          <rect width="30" height="21" fill="#009c3b"/>
+          <polygon points="15,2.5 27.5,10.5 15,18.5 2.5,10.5" fill="#ffdf00"/>
+          <circle cx="15" cy="10.5" r="4.4" fill="#002776"/>
+          <path d="M10.9 9.2 Q15 7.6 19.1 9.2" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bolivia">
+          <rect width="30" height="7" fill="#d52b1e"/>
+          <rect y="7" width="30" height="7" fill="#f9e300"/>
+          <rect y="14" width="30" height="7" fill="#007934"/>
+        </svg>
+      </span>
+    </a>
+  </div>
+
+  <header class="hero">
+    <span class="hero-kicker">Cirugía · Cap. 04</span>
+    <h1>Cirugía de Esófago</h1>
+    <p>Anatomía · Acalasia · Reflujo · Cáncer · Varices · Perforación</p>
+  </header>
+
+  <div class="panel">
+    <span class="marcador" id="marcador">Respondidas: 0 / 0 · Aciertos: 0</span>
+  </div>
+
+  <div id="quiz"></div>
+  <footer>Selecciona una opción para ver la explicación inmediata.</footer>
+
+</div>
+
+<script>
+const preguntas = [
+
+/* ========= ANATOMÍA (1-6) ========= */
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cuáles son los dos esfíncteres fisiológicos del esófago?",
+  ops:["Esfínter esofágico superior (EES) y esfínter esofágico inferior (EEI)",
+       "Esfínter de Oddi y esfínter pilórico",
+       "Esfínter anal interno y externo",
+       "Esfínter cricofaríngeo e ileocecal"],
+  ok:0,
+  exp:"O esôfago tem dois esfíncteres: o superior (EES, músculo cricofaríngeo) e o inferior (EEI, transição esofagogástrica). O EES impede a entrada de ar e a aspiração; o EEI evita o refluxo gastroesofágico." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cuántos centímetros mide el esófago en el adulto?",
+  ops:["Aproximadamente 25 cm",
+       "Cerca de 10 cm",
+       "Alrededor de 50 cm",
+       "Más de 60 cm"],
+  ok:0,
+  exp:"O esôfago mede cerca de 25 cm no adulto, indo da faringe (C6) até o cárdia (T11). Divide-se em esôfago cervical, torácico e abdominal." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Qué tipo de músculo predomina en el tercio inferior del esófago?",
+  ops:["Músculo liso",
+       "Músculo estriado",
+       "Músculo cardíaco",
+       "Cartílago hialino"],
+  ok:0,
+  exp:"O terço superior do esôfago é de músculo estriado, o médio é misto e o inferior é de músculo liso. Por isso, o EEI é de músculo liso, enquanto o EES é de músculo estriado." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cuáles son las três constricciones anatómicas del esófago (áreas de impactación de cuerpos extraños)?",
+  ops:["Cricofaríngea, arco aórtico/bronquial y diafragmática (EEI)",
+       "Cervical, torácica y abdominal",
+       "Superior, media e inferior",
+       "Solo la cricofaríngea"],
+  ok:0,
+  exp:"As três constricções esofágicas são: cricofaríngea (EES, mais alta, nível C6), broncoaórtica (arco aórtico e brônquio principal esquerdo, nível T4-T5) e diafragmática (EEI, nível T11). São os locais onde corpos estranhos tendem a impactar." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cuál es la relación anatómica del esófago torácico con la aorta?",
+  ops:["La aorta desciende a la izquierda y posterior al esófago",
+       "La aorta desciende a la derecha y anterior al esófago",
+       "La aorta atraviesa el esófago",
+       "La aorta es superior al esófago"],
+  ok:0,
+  exp:"A aorta torácica descendente situa-se à esquerda e posterior ao esôfago, cruzando-o anteriormente no nível de T4-T5 (arco aórtico). Essa relação é importante em cirurgias esofágicas e em casos de hemorragia por fístula aorto-esofágica." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Qué tipo de epitelio reviste el esófago normal?",
+  ops:["Epitelio escamoso estratificado não queratinizado",
+       "Epitélio colunar simples",
+       "Epitélio cúbico simples",
+       "Epitélio pseudoestratificado ciliado"],
+  ok:0,
+  exp:"O esôfago normal é revestido por epitélio escamoso estratificado não queratinizado. No esôfago de Barrett (complicação da DRGE), ocorre metaplasia intestinal, com epitélio colunar com células caliciformes." },
+
+/* ========= ACALASIA (7-12) ========= */
+{ cat:"Acalasia", tipo:"teoria",
+  q:"¿Cuál es la tríada fisiopatológica de la acalasia?",
+  ops:["Aperistalse esofágica, ausência de relaxamento do EEI e hipertonia do EEI",
+       "Refluxo, esofagite e estenose",
+       "Espasmo esofágico, disfagia e dor torácica",
+       "Aperistalse, refluxo e esofagite"],
+  ok:0,
+  exp:"A acalasia é caracterizada por: (1) aperistalse do corpo esofágico, (2) ausência de relaxamento do EEI durante a deglutição e (3) hipertonia do EEI. Resulta da degeneração do plexo mioentérico com perda de neurônios inibitórios (NO e VIP)." },
+
+{ cat:"Acalasia", tipo:"teoria",
+  q:"¿Cuál es la causa mais comum de acalasia primária?",
+  ops:["Degeneração idiopática do plexo mioentérico com perda de neurônios inibitórios",
+       "Câncer de esôfago",
+       "Infecção por H. pylori",
+       "Refluxo gastroesofágico"],
+  ok:0,
+  exp:"A acalasia primária (idiopática) resulta da degeneração do plexo mioentérico, com perda de neurônios inibitórios (NO e VIP) do EEI. A acalasia secundária pode ocorrer na doença de Chagas (destruição por Trypanosoma cruzi), câncer (pseudoacalasia) e neuropatias." },
+
+{ cat:"Acalasia", tipo:"teoria",
+  q:"¿Cuál es el examen de elección para el diagnóstico de acalasia?",
+  ops:["Esofagomanometria",
+       "Endoscopia digestiva alta",
+       "Radiografía contrastada de esôfago",
+       "pHmetria esofágica"],
+  ok:0,
+  exp:"A esofagomanometria é o padrão-ouro, mostrando aperistalse e relaxamento incompleto do EEI. A endoscopia é essencial para excluir câncer (pseudoacalasia) e a radiografia contrastada mostra o clássico 'bico de pássaro' e o esôfago dilatado." },
+
+{ cat:"Acalasia", tipo:"caso",
+  q:"Paciente de 45 años con disfagia progressiva a sólidos y líquidos, regurgitação de alimentos não digeridos e perda de 8 kg em 6 meses. Esofagomanometria: aperistalse e ausência de relaxamento do EEI. ¿Cuál es el diagnóstico y las opciones terapéuticas?",
+  ops:["Acalasia - dilatação pneumática endoscópica, cirurgia de Heller ou toxina botulínica",
+       "DRGE - IBP",
+       "Câncer de esôfago - cirurgia",
+       "Espasmo esofágico - nitrato"],
+  ok:0,
+  exp:"Acalasia idiopática. Opções: dilatação pneumática endoscópica (eficácia ~70-80% em 5 anos), miotomia de Heller por videolaparoscopia (padrão-ouro cirúrgico, com fundoplicatura parcial anti-refluxo) ou injeção de toxina botulínica (para pacientes de alto risco cirúrgico)." },
+
+{ cat:"Acalasia", tipo:"teoria",
+  q:"¿Qué es la miotomia de Heller?",
+  ops:["Miotomia cirúrgica do EEI por videolaparoscopia, com fundoplicatura parcial anti-refluxo",
+       "Ressecção do esôfago",
+       "Dilatação endoscópica",
+       "Injeção de toxina botulínica"],
+  ok:0,
+  exp:"A miotomia de Heller é a cardiomiotomia cirúrgica (corte das fibras musculares do EEI), realizada por videolaparoscopia, associada a uma fundoplicatura parcial (Dor ou Toupet) para prevenir refluxo. É o padrão-ouro cirúrgico da acalasia, com bons resultados em longo prazo." },
+
+{ cat:"Acalasia", tipo:"caso",
+  q:"Paciente de 70 años, com acalasia e alto risco cirúrgico (DPOC grave, cardiopatia). ¿Cuál es la mejor opção terapêutica?",
+  ops:["Dilatação pneumática endoscópica ou toxina botulínica",
+       "Miotomia de Heller por videolaparoscopia",
+       "Esofagectomia",
+       "Apenas observação"],
+  ok:0,
+  exp:"Em pacientes de alto risco cirúrgico, a dilatação pneumática endoscópica ou a injeção de toxina botulínica são preferíveis à cirurgia (Heller). A toxina botulínica tem eficácia temporária (meses a 1-2 anos), exigindo repetições." },
+
+/* ========= DRGE E REFLUXO (13-18) ========= */
+{ cat:"DRGE", tipo:"teoria",
+  q:"¿Cuál es el mecanismo fisiopatológico principal da DRGE?",
+  ops:["Relaxamentos transitórios do EEI e hipotonia do esfíncter",
+       "Aumento da secreção ácida gástrica apenas",
+       "Acalasia",
+       "Câncer gástrico"],
+  ok:0,
+  exp:"A DRGE resulta principalmente de relaxamentos transitórios do EEI (não relacionados à deglutição) e hipotonia do esfíncter, associados a hérnia hiatal, obesidade e atraso do esvaziamento gástrico." },
+
+{ cat:"DRGE", tipo:"teoria",
+  q:"¿Cuál es la principal indicação cirúrgica na DRGE?",
+  ops:["DRGE refratária ao tratamento clínico otimizado, complicações (esofagite grave, estenose, Barrett) ou intolerância ao IBP",
+       "Todos os pacientes com DRGE devem ser operados",
+       "Apenas DRGE em idosos",
+       "DRGE com sintomas leves"],
+  ok:0,
+  exp:"A cirurgia antirrefluxo (fundoplicatura de Nissen ou parcial) é indicada em: DRGE refratária ao IBP em dose plena, complicações (esofagite erosiva grave, estenose péptica, esôfago de Barrett), hérnia hiatal grande sintomática, intolerância ao IBP, ou opção do paciente bem selecionado." },
+
+{ cat:"DRGE", tipo:"teoria",
+  q:"¿Cuál es la cirurgia antirrefluxo padrão por videolaparoscopia?",
+  ops:["Fundoplicatura de Nissen (360°)",
+       "Fundoplicatura de Toupet (270°)",
+       "Cardiomiotomia de Heller",
+       "Gastrectomia parcial"],
+  ok:0,
+  exp:"A fundoplicatura de Nissen (360°) é a mais realizada, com bons resultados em longo prazo. A fundoplicatura parcial (Toupet 270° ou Dor 180°) é preferida em pacientes com distúrbio motor esofágico para reduzir disfagia pós-operatória." },
+
+{ cat:"DRGE", tipo:"teoria",
+  q:"¿Qué es el esôfago de Barrett?",
+  ops:["Metaplasia intestinal do epitélio escamoso esofágico, secundária à DRGE crônica, com risco aumentado de adenocarcinoma",
+       "Inflamação aguda do esôfago",
+       "Câncer de esôfago avançado",
+       "Acalasia"],
+  ok:0,
+  exp:"O esôfago de Barrett é a substituição do epitélio escamoso normal por epitélio colunar com metaplasia intestinal (células caliciformes), decorrente da DRGE crônica. É fator de risco para adenocarcinoma esofágico (risco 30-40x maior) e exige vigilância endoscópica." },
+
+{ cat:"DRGE", tipo:"caso",
+  q:"Paciente de 55 años, com pirose e regurgitação há 10 anos, usando IBP em dose plena sem controle. Endoscopia: esofagite erosiva grave (Los Angeles D). ¿Cuál es la conduta?",
+  ops:["Fundoplicatura antirrefluxo (Nissen ou parcial)",
+       "Aumentar a dose do IBP indefinidamente",
+       "Apenas dieta",
+       "Cirurgia bariátrica"],
+  ok:0,
+  exp:"DRGE refratária ao IBP em dose plena + esofagite grave = indicação de cirurgia antirrefluxo (fundoplicatura de Nissen ou parcial por videolaparoscopia), com bons resultados em longo prazo." },
+
+{ cat:"DRGE", tipo:"teoria",
+  q:"¿Cuál es la principal complicação da fundoplicatura de Nissen?",
+  ops:["Disfagia pós-operatória e síndrome de gases (gas-bloat)",
+       "Hemorragia maciça",
+       "Fístula esofágica",
+       "Pneumotórax"],
+  ok:0,
+  exp:"As principais complicações da fundoplicatura de Nissen são disfagia pós-operatória (geralmente transitória, mas às vezes persistente) e síndrome de gas-bloat (dificuldade de eructar/vomitar, distensão abdominal). A fundoplicatura parcial reduz esses riscos." },
+
+/* ========= CÂNCER DE ESÔFAGO (19-25) ========= */
+{ cat:"Cáncer de esôfago", tipo:"teoria",
+  q:"¿Cuáles son los dos principais tipos histológicos de câncer de esôfago?",
+  ops:["Adenocarcinoma e carcinoma epidermoide (escamoso)",
+       "Carcinoma de pequenas células e linfoma",
+       "Melanoma e GIST",
+       "Carcinoide e neuroendócrino"],
+  ok:0,
+  exp:"O carcinoma epidermoide (escamoso) é mais frequente no esôfago médio e superior, associado a tabagismo e álcool. O adenocarcinoma é mais frequente no esôfago distal e na junção esofagogástrica, associado a esôfago de Barrett e DRGE." },
+
+{ cat:"Cáncer de esôfago", tipo:"teoria",
+  q:"¿Cuál es el principal fator de risco para adenocarcinoma de esôfago?",
+  ops:["Esôfago de Barrett (DRGE crônica)",
+       "Consumo de álcool apenas",
+       "Tabagismo apenas",
+       "Acalasia"],
+  ok:0,
+  exp:"O esôfago de Barrett é o principal fator de risco para adenocarcinoma esofágico (risco 30-40x maior). O carcinoma epidermoide está associado a tabagismo, álcool, acalasia, tilose e ingestão de cáusticos." },
+
+{ cat:"Cáncer de esôfago", tipo:"teoria",
+  q:"¿Cuál es el principal fator de risco para carcinoma epidermoide de esôfago?",
+  ops:["Tabagismo e consumo de álcool",
+       "Esôfago de Barrett",
+       "Obesidade",
+       "Refluxo gastroesofágico"],
+  ok:0,
+  exp:"O carcinoma epidermoide esofágico está fortemente associado ao tabagismo e ao consumo de álcool (efeito sinérgico). Outros fatores: acalasia, tilose, ingestão de cáusticos, deficiências nutricionais, HPV." },
+
+{ cat:"Cáncer de esôfago", tipo:"caso",
+  q:"Paciente de 62 años, tabagista e etilista, com disfagia progressiva de 3 meses (sólidos e depois líquidos) e perda de 12 kg. Endoscopia: lesão ulcerada em esôfago médio. Biópsia: carcinoma epidermoide. ¿Cuál es el estadiamento inicial?",
+  ops:["Tomografia de tórax/abdome + PET-CT + ecoendoscopia",
+       "Apenas endoscopia",
+       "Radiografia simples de tórax",
+       "Cirurgia imediata"],
+  ok:0,
+  exp:"O estadiamento do câncer de esôfago é feito com TC de tórax e abdome, PET-CT (para metástases à distância) e ecoendoscopia (para avaliar profundidade de invasão - T e linfonodos - N). O estadiamento define a conduta (cirurgia, quimio/radio neoadjuvante ou paliação)." },
+
+{ cat:"Cáncer de esôfago", tipo:"teoria",
+  q:"¿Cuál es la cirugia padrão para câncer de esôfago torácico localizado?",
+  ops:["Esofagectomia com linfadenectomia e reconstrução (tubo gástrico ou cólon)",
+       "Apenas radioterapia",
+       "Apenas quimioterapia",
+       "Gastrectomia parcial"],
+  ok:0,
+  exp:"A esofagectomia (por via transtorácica, trans-hiatal ou híbrida) com linfadenectomia e reconstrução do trânsito (habitualmente com tubo gástrico, ou cólon em casos selecionados) é o tratamento padrão do câncer de esôfago localizado." },
+
+{ cat:"Cáncer de esôfago", tipo:"teoria",
+  q:"¿Cuál es la principal indicação de quimiorradioterapia neoadjuvante no câncer de esôfago?",
+  ops:["Tumores localmente avançados (T3-T4 ou N+) - protocolo CROSS",
+       "Todos os tumores, independentemente do estádio",
+       "Apenas tumores metastáticos",
+       "Nunca é indicada"],
+  ok:0,
+  exp:"A quimiorradioterapia neoadjuvante (protocolo CROSS: carboplatina + paclitaxel + radioterapia 41,4 Gy) é indicada em tumores localmente avançados (T3-T4 ou N+), aumentando a sobrevida e a taxa de ressecção R0." },
+
+{ cat:"Cáncer de esôfago", tipo:"caso",
+  q:"Paciente de 70 años, com disfagia grave e câncer de esôfago avançado (metastático). Qual é a melhor conduta paliativa para permitir alimentação oral?",
+  ops:["Prótese esofágica autoexpansível (stent) ou gastrostomia",
+       "Esofagectomia paliativa",
+       "Apenas sonda nasogástrica",
+       "Radioterapia isolada"],
+  ok:0,
+  exp:"Em pacientes com câncer de esôfago avançado e disfagia grave, a paliação pode ser feita com prótese esofágica autoexpansível (stent) para permitir alimentação oral, ou gastrostomia para alimentação enteral. A cirurgia de ressecção não é indicada em doença metastática." },
+
+/* ========= VARIZES ESOFÁGICAS (26-28) ========= */
+{ cat:"Varizes esofágicas", tipo:"teoria",
+  q:"¿Cuál es la principal causa de varizes esofágicas?",
+  ops:["Hipertensão portal por cirrose hepática",
+       "Refluxo gastroesofágico",
+       "Acalasia idiopática",
+       "Câncer de esôfago"],
+  ok:0,
+  exp:"As varizes esofágicas são causadas por hipertensão portal (mais comumente por cirrose hepática), que leva à formação de circulação colateral porto-sistêmica, incluindo varizes no esôfago distal, com risco de rotura e hemorragia digestiva alta." },
+
+{ cat:"Varizes esofágicas", tipo:"caso",
+  q:"Paciente de 55 años, cirrótico, com hematêmese volumosa e instabilidade hemodinâmica. Endoscopia: varizes esofágicas com sinais de sangramento recente. ¿Cuál es la conduta inicial?",
+  ops:["Ligadura elástica endoscópica + vasoconstritor esplâncnico (terlipressina/octreotídeo) + antibiótico profilático",
+       "Apenas transfusão",
+       "Cirurgia de urgência (TIPS ou cirurgia de derivação)",
+       "Alta hospitalar"],
+  ok:0,
+  exp:"Hemorragia digestiva alta por varizes esofágicas: conduta inicial é ligadura elástica endoscópica (ou escleroterapia) + vasoconstritor esplâncnico (terlipressina, octreotídeo ou somatostatina) + antibiótico profilático (ceftriaxona). TIPS e cirurgia de derivação são reservados para casos refratários." },
+
+{ cat:"Varizes esofágicas", tipo:"teoria",
+  q:"¿Cuál es la principal medida profilática para prevenção de sangramento por varizes esofágicas?",
+  ops:["Beta-bloqueadores não seletivos (propranolol, carvedilol) ou ligadura elástica endoscópica",
+       "Antibiótico profilático",
+       "Cirurgia de urgência",
+       "Apenas dieta"],
+  ok:0,
+  exp:"A profilaxia primária do sangramento por varizes esofágicas é feita com beta-bloqueadores não seletivos (reduzem a pressão portal) ou ligadura elástica endoscópica (erradicação das varizes). A profilaxia secundária (após sangramento) associa ambos." },
+
+/* ========= PERFURAÇÃO E TRAUMA (29-30) ========= */
+{ cat:"Perfuração esofágica", tipo:"caso",
+  q:"Paciente de 58 años, após endoscopia, apresenta dor torácica intensa, febre alta, enfisema subcutâneo e derrame pleural. Diagnóstico: perfuração esofágica. ¿Cuál es la conduta?",
+  ops:["Cirurgia de urgência (toracotomia/toracoscopia) com rafia ou exclusão do esôfago e drenagem",
+       "Tratamento conservador com antibiótico e jejum",
+       "Apenas drenagem pleural",
+       "Alta hospitalar com sintomáticos"],
+  ok:0,
+  exp:"Perfuração esofágica é uma emergência cirúrgica de alta mortalidade. Conduta: cirurgia de urgência (toracotomia ou toracoscopia) com rafia primária (se <24h e sem contaminação grave), drenagem ampla, ou exclusão esofágica em casos graves. Antibioticoterapia de amplo espectro + suporte intensivo." },
+
+{ cat:"Corpos estranhos", tipo:"caso",
+  q:"Paciente de 30 años, após ingestão acidental de espinha de peixe, apresenta dor retroesternal e sialorreia. Qual é a conduta inicial?",
+  ops:["Endoscopia digestiva alta para retirada do corpo estranho",
+       "Tomografia de tórax imediata",
+       "Cirurgia imediata",
+       "Observação clínica"],
+  ok:0,
+  exp:"Corpos estranhos esofágicos impactados devem ser removidos por endoscopia digestiva alta (com proteção de via aérea se necessário). Se houver perfuração, sinais de mediastinite ou impossibilidade de retirada endoscópica, indicar cirurgia." }
+
+];
+
+/* ========= LÓGICA ========= */
+const cont = document.getElementById('quiz');
+const marcador = document.getElementById('marcador');
+let respondidas = 0, aciertos = 0;
+
+function actualizarMarcador() {
+  marcador.textContent = `Respondidas: ${respondidas} / ${preguntas.length} · Aciertos: ${aciertos}`;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function shuffleOptions(p) {
+  const idx = p.ops.map((_, i) => i);
+  shuffle(idx);
+  return { ...p, ops: idx.map(i => p.ops[i]), ok: idx.indexOf(p.ok) };
+}
+
+function responder(card, caja, exp, p, elegida) {
+  if (card.dataset.respondida) return;
+  card.dataset.respondida = "1";
+  caja.querySelectorAll('.opcion').forEach((b, j) => {
+    b.disabled = true;
+    if (j === p.ok) b.classList.add('correcta');
+    if (j === elegida && elegida !== p.ok) b.classList.add('incorrecta');
+  });
+  const acerto = elegida === p.ok;
+  respondidas++;
+  if (acerto) aciertos++;
+  actualizarMarcador();
+  exp.innerHTML = `<strong>${acerto ? '✅ ¡Correcto!' : '❌ Respuesta incorrecta.'}</strong> ${p.exp}`;
+  exp.classList.add('visible');
+}
+
+function construir() {
+  cont.innerHTML = "";
+  respondidas = 0; aciertos = 0;
+  actualizarMarcador();
+
+  const lote = preguntas.map(shuffleOptions);
+
+  lote.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'card ' + p.tipo;
+
+    const cab = document.createElement('div');
+    cab.className = 'cabecera';
+    cab.innerHTML =
+      `<div class="numero">${i + 1}</div>
+       <span class="etiqueta ${p.tipo === 'caso' ? 'c' : 't'}">
+         ${p.tipo === 'caso' ? 'Caso clínico' : 'Teoría'}
+       </span>
+       <span class="etiqueta materia">${p.cat}</span>`;
+    card.appendChild(cab);
+
+    const enun = document.createElement('p');
+    enun.className = 'enunciado';
+    enun.textContent = p.q;
+    card.appendChild(enun);
+
+    const caja = document.createElement('div');
+    caja.className = 'opciones';
+    const exp = document.createElement('div');
+    exp.className = 'explicacion';
+
+    p.ops.forEach((op, j) => {
+      const b = document.createElement('button');
+      b.className = 'opcion';
+      b.innerHTML = `<span class="letra">${'ABCD'[j]}</span><span>${op}</span>`;
+      b.addEventListener('click', () => responder(card, caja, exp, p, j));
+      caja.appendChild(b);
+    });
+
+    card.appendChild(caja);
+    card.appendChild(exp);
+    cont.appendChild(card);
+  });
+
+  const letras = {A:0, B:0, C:0, D:0};
+  lote.forEach(p => { letras['ABCD'[p.ok]]++; });
+  console.log('=== Distribución de ESTA sesión ===');
+  console.log('Correctas por letra:', letras);
+}
+
+construir();
+</script>
+
+</body>
+</html>
