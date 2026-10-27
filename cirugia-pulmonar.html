@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cirugía Pulmonar — Claudir de Jesus Kowal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#070d12;--surface:#0d151d;--surface-hi:#151e26;--line:#1b2833;--line-hi:#2c3d49;--ink:#e6f1f7;--muted:#7b93a5;--mint:#38f2c0;--amber:#ffb457;--red:#f87171;}
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;line-height:1.55;min-height:100vh;padding:0 14px 90px;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(56,242,192,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(56,242,192,.055) 1px,transparent 1px);background-size:58px 58px;-webkit-mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 72%);mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 72%)}
+  body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(700px 420px at 18% -8%, rgba(56,242,192,.16), transparent 65%),radial-gradient(650px 450px at 85% 5%, rgba(53,208,255,.12), transparent 65%),radial-gradient(600px 400px at 50% 108%, rgba(181,140,255,.10), transparent 65%)}
+  .contenedor{max-width:880px;margin:0 auto;position:relative;z-index:1}
+  .topbar{display:flex;align-items:center;padding:22px 0 0;font-size:.82rem;color:var(--muted)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);letter-spacing:-.01em;font-size:.95rem;white-space:nowrap;text-decoration:none}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(56,242,192,.7);animation:pulse 1.8s infinite;flex:0 0 auto}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,242,192,.7)}70%{box-shadow:0 0 0 12px rgba(56,242,192,0)}100%{box-shadow:0 0 0 0 rgba(56,242,192,0)}}
+  .flags{display:inline-flex;align-items:center;gap:6px;margin-left:6px;user-select:none}
+  .flags svg{width:22px;height:auto;display:block;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.5);transition:transform .25s ease}
+  .flags svg:hover{transform:scale(1.12)}
+  .volver{position:fixed;bottom:20px;left:20px;z-index:100;background:rgba(13,21,29,.92);color:var(--mint);border:1px solid rgba(56,242,192,.45);backdrop-filter:blur(12px);padding:10px 18px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.88rem;box-shadow:0 8px 24px rgba(56,242,192,.18),0 4px 14px rgba(0,0,0,.5);transition:background .2s,color .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+  .volver:hover{background:var(--mint);color:#04222b;border-color:var(--mint);transform:translateY(-2px)}
+  .volver .arrow{transition:transform .2s}
+  .volver:hover .arrow{transform:translateX(-3px)}
+  header.hero{margin-top:40px;padding:28px 26px 26px;border-radius:18px;background:linear-gradient(180deg,rgba(56,242,192,.06),rgba(56,242,192,0));border:1px solid var(--line);position:relative;overflow:hidden}
+  header.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(400px 200px at 0% 0%, rgba(56,242,192,.15), transparent 70%)}
+  .hero-kicker{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mint);border:1px solid rgba(56,242,192,.35);background:rgba(56,242,192,.06);padding:5px 12px;border-radius:999px;display:inline-block;position:relative}
+  header.hero h1{margin:14px 0 6px;font-size:1.5rem;letter-spacing:-.03em;font-weight:700;line-height:1.25;color:var(--ink);position:relative}
+  header.hero p{margin:0;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--muted);position:relative}
+  .panel{position:sticky;top:12px;z-index:20;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:rgba(13,21,29,.88);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:20px 0;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.04em}
+  .panel .marcador{color:var(--mint);font-weight:500}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;margin-bottom:14px;transition:border-color .25s,box-shadow .25s;position:relative}
+  .card:hover{border-color:var(--line-hi)}
+  .card.teoria{border-left:3px solid var(--mint)}
+  .card.caso{border-left:3px solid var(--amber)}
+  .cabecera{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+  .numero{background:rgba(56,242,192,.10);color:var(--mint);border:1px solid rgba(56,242,192,.30);font-size:.7rem;font-weight:700;font-family:'JetBrains Mono',monospace;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .etiqueta{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+  .etiqueta.t{background:rgba(56,242,192,.10);color:var(--mint);border:1px solid rgba(56,242,192,.25)}
+  .etiqueta.c{background:rgba(255,180,87,.10);color:var(--amber);border:1px solid rgba(255,180,87,.25)}
+  .etiqueta.materia{background:rgba(123,147,165,.08);color:var(--muted);border:1px solid var(--line)}
+  .enunciado{margin:0 0 8px;font-weight:600;font-size:1rem;color:var(--ink);line-height:1.5}
+  .opciones{margin-top:10px}
+  .opcion{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:8px;font-family:'Space Grotesk',inherit;font-size:.92rem;color:var(--ink);cursor:pointer;transition:background .18s,border-color .18s,transform .12s}
+  .opcion:hover:not(:disabled){background:rgba(56,242,192,.04);border-color:rgba(56,242,192,.35);transform:translateX(2px)}
+  .opcion:disabled{cursor:default;opacity:.55}
+  .letra{font-weight:700;color:var(--muted);flex:0 0 auto;min-width:16px;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+  .opcion.correcta{background:rgba(56,242,192,.10);border-color:var(--mint);opacity:1;font-weight:600}
+  .opcion.correcta .letra{color:var(--mint)}
+  .opcion.incorrecta{background:rgba(248,113,113,.08);border-color:var(--red);opacity:1}
+  .opcion.incorrecta .letra{color:var(--red)}
+  .explicacion{display:none;margin-top:14px;padding:14px 16px;border-radius:10px;background:rgba(56,242,192,.05);border-left:3px solid var(--mint);font-size:.88rem;color:var(--ink);line-height:1.65}
+  .explicacion strong{color:var(--mint)}
+  .explicacion.visible{display:block;animation:aparecer .28s ease}
+  @keyframes aparecer{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+  footer{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:34px}
+  @media(max-width:560px){header.hero{padding:22px 18px 20px;border-radius:14px}header.hero h1{font-size:1.18rem}.card{padding:18px 16px 14px}.opcion{font-size:.88rem}.panel{font-size:.7rem;padding:10px 14px}.brand{font-size:.86rem}.flags svg{width:20px}.volver{bottom:14px;left:14px;padding:9px 15px;font-size:.82rem}}
+</style>
+</head>
+<body>
+
+<a href="cirugia.html" class="volver"><span class="arrow">←</span> Volver</a>
+
+<div class="contenedor">
+
+  <div class="topbar">
+    <a class="brand" href="index.html">
+      <span class="pulse"></span>
+      Claudir de Jesus Kowal
+      <span class="flags" aria-label="Brasil y Bolivia">
+        <svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Brasil">
+          <rect width="30" height="21" fill="#009c3b"/>
+          <polygon points="15,2.5 27.5,10.5 15,18.5 2.5,10.5" fill="#ffdf00"/>
+          <circle cx="15" cy="10.5" r="4.4" fill="#002776"/>
+          <path d="M10.9 9.2 Q15 7.6 19.1 9.2" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bolivia">
+          <rect width="30" height="7" fill="#d52b1e"/>
+          <rect y="7" width="30" height="7" fill="#f9e300"/>
+          <rect y="14" width="30" height="7" fill="#007934"/>
+        </svg>
+      </span>
+    </a>
+  </div>
+
+  <header class="hero">
+    <span class="hero-kicker">Cirugía · Cap. 03</span>
+    <h1>Cirugía Pulmonar</h1>
+    <p>Anatomía · Câncer de pulmão · Lobectomia · Drenagem torácica · Pneumotórax</p>
+  </header>
+
+  <div class="panel">
+    <span class="marcador" id="marcador">Respondidas: 0 / 0 · Aciertos: 0</span>
+  </div>
+
+  <div id="quiz"></div>
+  <footer>Selecciona una opción para ver la explicación inmediata.</footer>
+
+</div>
+
+<script>
+const preguntas = [
+
+/* ========= ANATOMÍA (1-7) ========= */
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cuántos lóbulos tienen el pulmón derecho y el izquierdo, respectivamente?",
+  ops:["3 e 2",
+       "2 e 3",
+       "2 e 2",
+       "3 e 3"],
+  ok:0,
+  exp:"O pulmão direito tem 3 lobos (superior, médio e inferior), com 10 segmentos broncopulmonares. O pulmão esquerdo tem 2 lobos (superior com a língula e inferior), com 8-9 segmentos, pois o coração ocupa espaço no lado esquerdo." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cuántos segmentos broncopulmonares tiene el pulmón derecho?",
+  ops:["10",
+       "8",
+       "6",
+       "12"],
+  ok:0,
+  exp:"O pulmão direito tem 10 segmentos broncopulmonares: 3 no lobo superior, 2 no lobo médio e 5 no lobo inferior. O pulmão esquerdo tem 8-9 segmentos." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Qué estructura marca a divisão entre o pulmão direito e o esquerdo?",
+  ops:["Mediastino",
+       "Carina",
+       "Hilo pulmonar",
+       "Diafragma"],
+  ok:0,
+  exp:"O mediastino é o compartimento central que separa os dois pulmões. Contém o coração, grandes vasos, traqueia, esôfago, timo, linfonodos e nervos (frênico, vago, simpático)." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Dónde se localiza a carina?",
+  ops:["Na bifurcação da traqueia em brônquios principais direito e esquerdo",
+       "Na entrada do esôfago no tórax",
+       "Na saída do coração da cavidade torácica",
+       "No ápice pulmonar"],
+  ok:0,
+  exp:"A carina é a crista na bifurcação da traqueia (geralmente na altura de T4-T5), onde se divide nos brônquios principais direito e esquerdo. O brônquio principal direito é mais curto, mais largo e mais vertical, predispondo à aspiração." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Qué é o hilo pulmonar?",
+  ops:["Região por onde entram e saem os brônquios, vasos pulmonares e linfáticos",
+       "A membrana que reveste os pulmões",
+       "O espaço entre os lobos pulmonares",
+       "A parte superior do pulmão"],
+  ok:0,
+  exp:"O hilo pulmonar é a região medial do pulmão por onde passam o brônquio principal, a artéria pulmonar, as veias pulmonares, vasos linfáticos e nervos. É importante na cirurgia torácica por ser sede de dissecção e de linfonodos." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Qué é a pleura?",
+  ops:["Membrana serosa que reveste os pulmões (visceral) e a cavidade torácica (parietal)",
+       "Músculo da respiração",
+       "Cartilagem da traqueia",
+       "Parte do mediastino"],
+  ok:0,
+  exp:"A pleura é uma membrana serosa dupla: visceral (aderida ao pulmão) e parietal (aderida à parede torácica). Entre elas há o espaço pleural (com uma fina camada de líquido lubrificante), onde se acumulam ar (pneumotórax), sangue (hemotórax) ou líquido (derrame pleural)." },
+
+{ cat:"Anatomía", tipo:"teoria",
+  q:"¿Cuál es la principal função do diafragma na respiração?",
+  ops:["Gerar a pressão negativa intratorácica na inspiração",
+       "Produzir surfactante",
+       "Aquecer o ar inspirado",
+       "Filtrar o ar"],
+  ok:0,
+  exp:"O diafragma é o principal músculo da inspiração. Sua contração aumenta o volume da caixa torácica, criando pressão negativa intratorácica que puxa o ar para os pulmões. Lesão do nervo frênico pode causar paralisia diafragmática." },
+
+/* ========= CIRURGIAS PULMONARES (8-14) ========= */
+{ cat:"Cirugía pulmonar", tipo:"teoria",
+  q:"¿Qué é uma lobectomia?",
+  ops:["Remoção de um lobo pulmonar",
+       "Remoção de um segmento pulmonar",
+       "Remoção de um pulmão inteiro",
+       "Biópsia pulmonar"],
+  ok:0,
+  exp:"A lobectomia é a remoção de um lobo pulmonar, com dissecção individual dos vasos e brônquios lobares e linfadenectomia. É o padrão-ouro para o câncer de pulmão não pequenas células localizado." },
+
+{ cat:"Cirugía pulmonar", tipo:"teoria",
+  q:"¿Qué é uma pneumonectomia?",
+  ops:["Remoção completa de um pulmão",
+       "Remoção de um lobo pulmonar",
+       "Ressecção de um segmento",
+       "Biópsia por videotoracoscopia"],
+  ok:0,
+  exp:"A pneumonectomia é a remoção completa de um pulmão. Indicada em tumores centrais que envolvem o hilo pulmonar ou quando a lobectomia não é viável. Tem maior morbimortalidade que a lobectomia e exige avaliação criteriosa da função pulmonar." },
+
+{ cat:"Cirugía pulmonar", tipo:"teoria",
+  q:"¿Qué é uma segmentectomia pulmonar?",
+  ops:["Remoção de um segmento broncopulmonar",
+       "Remoção de um lobo inteiro",
+       "Remoção de um pulmão",
+       "Biópsia por agulha"],
+  ok:0,
+  exp:"A segmentectomia remove apenas um segmento broncopulmonar, preservando o restante do lobo. É indicada em tumores pequenos (<2 cm) periféricos ou em pacientes com reserva pulmonar limitada." },
+
+{ cat:"Cirugía pulmonar", tipo:"teoria",
+  q:"¿Cuál é a principal vantagem da cirurgia torácica por videotoracoscopia (VATS)?",
+  ops:["Menor dor pós-operatória, menor tempo de internação e recuperação mais rápida",
+       "Menor custo cirúrgico",
+       "Maior exposição do campo operatório",
+       "Menor taxa de recidiva tumoral"],
+  ok:0,
+  exp:"A VATS (cirurgia torácica videoassistida) é realizada por 2-4 pequenas incisões, sem toracotomia. Reduz a dor pós-operatória, o tempo de internação, as complicações respiratórias e permite recuperação mais rápida, com resultados oncológicos equivalentes à toracotomia em centros experientes." },
+
+{ cat:"Cirugía pulmonar", tipo:"teoria",
+  q:"¿Qual é a indicação de ressecção pulmonar em metástases de outros tumores (metastasectomia)?",
+  ops:["Metástases pulmonares isoladas ou limitadas, com controle do tumor primário",
+       "Todas as metástases pulmonares, independente do número",
+       "Apenas metástases de melanoma",
+       "Nunca é indicada"],
+  ok:0,
+  exp:"A metastasectomia pulmonar é indicada em pacientes com metástases pulmonares limitadas (geralmente <5), controladas do tumor primário, com bom estado geral e função pulmonar adequada. Os tumores mais frequentemente operados são colorretal, renal, sarcoma e cabeça/pescoço." },
+
+{ cat:"Cirugía pulmonar", tipo:"teoria",
+  q:"¿Qué é a cirurgia de sleeves (ressecção em manga)?",
+  ops:["Ressecção de um segmento do brônquio com anastomose brônquica, preservando o parênquima pulmonar",
+       "Ressecção de toda a pleura",
+       "Ressecção do diafragma",
+       "Ressecção do esterno"],
+  ok:0,
+  exp:"A ressecção em manga (sleeve) é a remoção de um segmento do brônquio (ou da artéria pulmonar) comprometido por tumor, com reconstrução por anastomose. Preserva o parênquima pulmonar, evitando pneumonectomia em tumores centrais." },
+
+{ cat:"Cirugía pulmonar", tipo:"teoria",
+  q:"¿Cuál é a principal contraindicação à ressecção pulmonar no câncer de pulmão?",
+  ops:["Metástases à distância e função pulmonar inadequada",
+       "Idade acima de 60 anos",
+       "Tabagismo ativo",
+       "Diabetes"],
+  ok:0,
+  exp:"As principais contraindicações à ressecção pulmonar são: metástases à distância (estádio IV), função pulmonar inadequada (VEF1 ou DLCO <40% previsto, ou <30% em lobectomia), comprometimento nodal extenso (N3), e estado geral debilitado (ECOG >2)." },
+
+/* ========= CÂNCER DE PULMÃO (15-22) ========= */
+{ cat:"Cáncer de pulmão", tipo:"teoria",
+  q:"¿Cuál é o tipo histológico mais comum de câncer de pulmão?",
+  ops:["Adenocarcinoma",
+       "Carcinoma de pequenas células",
+       "Carcinoma de grandes células",
+       "Mesotelioma"],
+  ok:0,
+  exp:"O adenocarcinoma é o tipo histológico mais comum de câncer de pulmão (~40-50%), especialmente em não fumantes, mulheres e jovens. O carcinoma escamoso e o carcinoma de pequenas células também são frequentes." },
+
+{ cat:"Cáncer de pulmão", tipo:"teoria",
+  q:"¿Qual tipo de câncer de pulmão está mais associado ao tabagismo e tem pior prognóstico?",
+  ops:["Carcinoma de pequenas células",
+       "Adenocarcinoma",
+       "Carcinoma escamoso",
+       "Carcinoide típico"],
+  ok:0,
+  exp:"O carcinoma de pequenas células (SCLC) é o tipo mais fortemente associado ao tabagismo, com crescimento rápido e alta tendência metastática precoce. É geralmente tratado com quimioterapia e radioterapia (raramente cirurgia)." },
+
+{ cat:"Cáncer de pulmão", tipo:"teoria",
+  q:"¿Qual é a principal diferença entre câncer de pulmão de pequenas células (SCLC) e não pequenas células (NSCLC)?",
+  ops:["SCLC é mais agressivo, metastático precocemente e tratado com quimio/radioterapia; NSCLC pode ser tratado com cirurgia em estádios iniciais",
+       "SCLC é tratado apenas com cirurgia",
+       "NSCLC é sempre metastático",
+       "SCLC nunca está associado ao tabagismo"],
+  ok:0,
+  exp:"SCLC (10-15% dos casos) é altamente agressivo, com metástases precoces e tratamento baseado em quimioterapia + radioterapia (raramente cirurgia). NSCLC (85-90%) tem cirurgia como tratamento padrão nos estádios iniciais (I-II), com quimio/radio adjuvante conforme o estádio." },
+
+{ cat:"Cáncer de pulmão", tipo:"teoria",
+  q:"¿Qué es el estadiamento TNM do câncer de pulmão?",
+  ops:["T (tamanho/invasão do tumor), N (linfonodos), M (metástases)",
+       "T (tempo de evolução), N (número de tumores), M (marcadores)",
+       "Apenas T (tamanho) e M (metástases)",
+       "T (tipo histológico), N (necrose), M (mutações)"],
+  ok:0,
+  exp:"O TNM estadiamento: T = tamanho e invasão local do tumor primário; N = envolvimento de linfonodos regionais (N0-N3); M = metástases à distância (M0/M1). Define o estádio (I-IV) e a conduta terapêutica." },
+
+{ cat:"Cáncer de pulmão", tipo:"caso",
+  q:"Paciente de 62 anos, tabagista, com nódulo pulmonar de 2,5 cm em lobo superior direito, sem metástases. Espirometria e função pulmonar adequadas. Qual é a conduta padrão?",
+  ops:["Lobectomia com linfadenectomia mediastinal",
+       "Segmentectomia apenas",
+       "Pneumonectomia",
+       "Apenas quimioterapia"],
+  ok:0,
+  exp:"O tratamento padrão do NSCLC em estádio I-II é a lobectomia com linfadenectomia mediastinal (pelo menos 6 linfonodos, 3 estações). A segmentectomia é reservada para tumores pequenos (<2 cm) periféricos ou pacientes com função pulmonar limitada." },
+
+{ cat:"Cáncer de pulmão", tipo:"caso",
+  q:"Paciente de 55 anos, com carcinoma de pulmão de pequenas células (SCLC) localizado (estádio limitado). Qual é a conduta?",
+  ops:["Quimioterapia + radioterapia torácica (raramente cirurgia)",
+       "Cirurgia isolada",
+       "Apenas observação",
+       "Transplante pulmonar"],
+  ok:0,
+  exp:"SCLC em estádio limitado (confined ao tórax): quimioterapia à base de platina + radioterapia torácica precoce. A cirurgia é reservada a casos muito selecionados (T1-T2 N0 M0, <5% dos casos). Em estádio extenso, apenas quimioterapia + imunoterapia paliativa." },
+
+{ cat:"Cáncer de pulmão", tipo:"teoria",
+  q:"¿Cuál é o principal fator de risco evitável para o câncer de pulmão?",
+  ops:["Tabagismo",
+       "Poluição do ar",
+       "Radônio",
+       "Asbesto"],
+  ok:0,
+  exp:"O tabagismo é o principal fator de risco evitável para o câncer de pulmão (cerca de 85% dos casos). A cessação do tabagismo reduz significativamente o risco ao longo do tempo." },
+
+{ cat:"Cáncer de pulmão", tipo:"teoria",
+  q:"¿Cuál é a indicação de cirurgia no câncer de pulmão com metástase cerebral única?",
+  ops:["Ressecção do tumor pulmonar + ressecção/radioterapia da metástase (se controlável)",
+       "Apenas quimioterapia paliativa",
+       "Contraindicação absoluta de cirurgia",
+       "Apenas radioterapia paliativa"],
+  ok:0,
+  exp:"Metástase cerebral única e controlável, associada a tumor pulmonar ressecável, pode ser tratada com cirurgia do pulmão + ressecção ou radiocirurgia da metástase cerebral. Nesses casos selecionados, a sobrevida em 5 anos pode chegar a 20-30%." },
+
+/* ========= DRENAGEM TORÁCICA (23-27) ========= */
+{ cat:"Drenagem torácica", tipo:"teoria",
+  q:"¿Cuál é a principal indicação de drenagem torácica?",
+  ops:["Pneumotórax, hemotórax, derrame pleural, empiema e pós-operatório de cirurgias torácicas",
+       "Asma aguda grave",
+       "Pneumonia lobar",
+       "Bronquite crônica"],
+  ok:0,
+  exp:"O dreno torácico está indicado em: pneumotórax (espontâneo, traumático ou hipertensivo), hemotórax, derrame pleural volumoso ou complicado, empiema, quilotórax e no pós-operatório de cirurgias torácicas (para drenar ar e líquido)." },
+
+{ cat:"Drenagem torácica", tipo:"teoria",
+  q:"¿Dónde se coloca tradicionalmente o dreno torácico para drenagem de ar (pneumotórax)?",
+  ops:["2º-3º espaço intercostal, linha hemiclavicular, na borda superior da costela inferior",
+       "5º-6º espaço intercostal, linha axilar média",
+       "7º-8º espaço intercostal, linha escapular",
+       "Região subxifoide"],
+  ok:0,
+  exp:"Para drenagem de AR, o dreno é posicionado no 2º-3º espaço intercostal, linha hemiclavicular (ou 4º-5º espaço, linha axilar anterior, conforme protocolos ATLS modernos), na borda SUPERIOR da costela inferior (para evitar o feixe vasculonervoso intercostal)." },
+
+{ cat:"Drenagem torácica", tipo:"teoria",
+  q:"¿Dónde se coloca o dreno torácico para drenagem de líquido (hemotórax, derrame)?",
+  ops:["5º-6º espaço intercostal, linha axilar média",
+       "2º-3º espaço intercostal, linha hemiclavicular",
+       "3º-4º espaço intercostal, linha paraesternal",
+       "8º-9º espaço intercostal, linha escapular"],
+  ok:0,
+  exp:"Para drenagem de LÍQUIDO, o dreno é posicionado no 5º-6º espaço intercostal, na linha axilar média (ou 5º-8º espaço), na borda superior da costela inferior. Para AR, prefere-se a porção mais alta (2º-3º EIC)." },
+
+{ cat:"Drenagem torácica", tipo:"teoria",
+  q:"¿Cómo funciona o sistema de drenagem torácica em selo d'água?",
+  ops:["Permite saída de ar/líquido na expiração e impede entrada de ar na inspiração",
+       "Aplica pressão positiva contínua",
+       "Permite entrada de ar para o tórax",
+       "Não precisa de selo d'água"],
+  ok:0,
+  exp:"No selo d'água, a extremidade do dreno fica submersa em ~2 cm de água. Quando o paciente expira ou tosse, o ar/líquido sai do tórax e borbulha. Na inspiração, a coluna de água impede que o ar entre de volta no espaço pleural." },
+
+{ cat:"Drenagem torácica", tipo:"teoria",
+  q:"¿Cuál é a principal complicação da drenagem torácica mal posicionada?",
+  ops:["Lesão de órgãos intratorácicos, vasos intercostais, pulmão ou diafragma",
+       "Infecção apenas",
+       "Dor apenas",
+       "Não há complicações"],
+  ok:0,
+  exp:"As principais complicações da drenagem torácica são: lesão de vasos intercostais, parênquima pulmonar, coração, diafragma, fígado ou baço; infecção; mau posicionamento; e enfisema subcutâneo." },
+
+/* ========= PNEUMOTÓRAX (28-30) ========= */
+{ cat:"Pneumotórax", tipo:"teoria",
+  q:"¿Qué é um pneumotórax hipertensivo?",
+  ops:["Acúmulo progressivo de ar no espaço pleural com desvio do mediastino e choque obstrutivo",
+       "Pneumotórax pequeno e assintomático",
+       "Pneumotórax apenas em jovens altos e magros",
+       "Pneumotórax por tuberculose"],
+  ok:0,
+  exp:"O pneumotórax hipertensivo ocorre quando o ar entra no espaço pleural durante a inspiração mas não consegue sair na expiração (mecanismo valvular), causando aumento progressivo da pressão intratorácica, colapso pulmonar, desvio do mediastino, comprometimento do retorno venoso e choque obstrutivo. É uma emergência com risco de morte." },
+
+{ cat:"Pneumotórax", tipo:"caso",
+  q:"Paciente de 28 anos, alto e magro, com dor torácica súbita e dispneia. Radiografia: hipertransparência sem trama vascular periférica. Qual é o diagnóstico e a conduta se sintomático ou grande?",
+  ops:["Pneumotórax espontâneo primário - drenagem torácica",
+       "Pneumonia - antibiótico",
+       "Derrame pleural - toracocentese",
+       "Infarto pulmonar - anticoagulação"],
+  ok:0,
+  exp:"Pneumotórax espontâneo primário típico em jovem alto e magro (rotura de bolhas subpleurais). Conduta: drenagem torácica se pneumotórax grande (>2 cm, sintomático) ou progressivo; observação em casos pequenos e assintomáticos. Se recidivante, indicar pleurodese cirúrgica (VATS com bulectomia e pleurodese)." },
+
+{ cat:"Pneumotórax", tipo:"caso",
+  q:"Paciente de 40 anos, vítima de trauma torácico, apresenta enfisema subcutâneo, desvio de traqueia, hipotensão e turgência jugular. Qual é o diagnóstico e a conduta imediata?",
+  ops:["Pneumotórax hipertensivo - descompressão imediata com agulha, seguida de drenagem torácica",
+       "Tamponamento cardíaco - pericardiocentese",
+       "Choque hipovolêmico - reposição volêmica",
+       "TEP - trombólise"],
+  ok:0,
+  exp:"Enfisema subcutâneo + desvio de traqueia + hipotensão + turgência jugular = pneumotórax hipertensivo. Conduta imediata: descompressão com agulha no 2º espaço intercostal (linha hemiclavicular) ou 4º-5º EIC (linha axilar anterior), seguida de drenagem torácica e estabilização. NÃO aguardar radiografia para descomprimir." }
+
+];
+
+/* ========= LÓGICA ========= */
+const cont = document.getElementById('quiz');
+const marcador = document.getElementById('marcador');
+let respondidas = 0, aciertos = 0;
+
+function actualizarMarcador() {
+  marcador.textContent = `Respondidas: ${respondidas} / ${preguntas.length} · Aciertos: ${aciertos}`;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function shuffleOptions(p) {
+  const idx = p.ops.map((_, i) => i);
+  shuffle(idx);
+  return { ...p, ops: idx.map(i => p.ops[i]), ok: idx.indexOf(p.ok) };
+}
+
+function responder(card, caja, exp, p, elegida) {
+  if (card.dataset.respondida) return;
+  card.dataset.respondida = "1";
+  caja.querySelectorAll('.opcion').forEach((b, j) => {
+    b.disabled = true;
+    if (j === p.ok) b.classList.add('correcta');
+    if (j === elegida && elegida !== p.ok) b.classList.add('incorrecta');
+  });
+  const acerto = elegida === p.ok;
+  respondidas++;
+  if (acerto) aciertos++;
+  actualizarMarcador();
+  exp.innerHTML = `<strong>${acerto ? '✅ ¡Correcto!' : '❌ Respuesta incorrecta.'}</strong> ${p.exp}`;
+  exp.classList.add('visible');
+}
+
+function construir() {
+  cont.innerHTML = "";
+  respondidas = 0; aciertos = 0;
+  actualizarMarcador();
+
+  const lote = preguntas.map(shuffleOptions);
+
+  lote.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'card ' + p.tipo;
+
+    const cab = document.createElement('div');
+    cab.className = 'cabecera';
+    cab.innerHTML =
+      `<div class="numero">${i + 1}</div>
+       <span class="etiqueta ${p.tipo === 'caso' ? 'c' : 't'}">
+         ${p.tipo === 'caso' ? 'Caso clínico' : 'Teoría'}
+       </span>
+       <span class="etiqueta materia">${p.cat}</span>`;
+    card.appendChild(cab);
+
+    const enun = document.createElement('p');
+    enun.className = 'enunciado';
+    enun.textContent = p.q;
+    card.appendChild(enun);
+
+    const caja = document.createElement('div');
+    caja.className = 'opciones';
+    const exp = document.createElement('div');
+    exp.className = 'explicacion';
+
+    p.ops.forEach((op, j) => {
+      const b = document.createElement('button');
+      b.className = 'opcion';
+      b.innerHTML = `<span class="letra">${'ABCD'[j]}</span><span>${op}</span>`;
+      b.addEventListener('click', () => responder(card, caja, exp, p, j));
+      caja.appendChild(b);
+    });
+
+    card.appendChild(caja);
+    card.appendChild(exp);
+    cont.appendChild(card);
+  });
+
+  const letras = {A:0, B:0, C:0, D:0};
+  lote.forEach(p => { letras['ABCD'[p.ok]]++; });
+  console.log('=== Distribución de ESTA sesión ===');
+  console.log('Correctas por letra:', letras);
+}
+
+construir();
+</script>
+
+</body>
+</html>
