@@ -107,131 +107,152 @@ const preguntas = [
 
 { cat:"Anatomía", tipo:"teoria",
   q:"¿Cuáles son las tres capas principales de la piel?",
-  ops:["Epidermis, dermis y tejido celular subcutáneo",
-       "Mucosa, submucosa y muscular",
-       "Solo epidermis y dermis",
-       "Epidermis, aponeurosis y músculo"],
-  ok:0,
-  exp:"La piel está formada por epidermis (capa epitelial), dermis (con colágeno y elastina) y tejido celular subcutáneo (grasa). Los anexos cutáneos (folículos pilosos, glándulas sebáceas y sudoríparas) están en la dermis y son clave para la reepitelización." },
+  ops:["Solo piel y mucosa",
+       "Epidermis, dermis y subcutáneo",
+       "Epidermis, fascia y músculo",
+       "Tres capas: piel, grasa y aponeurosis"],
+  ok:1,
+  exp:"A pele é formada por epiderme (epitélio), derme (colágeno/elastina) e tecido celular subcutâneo (gordura). Os anexos cutâneos (folículos, glândulas) estão na derme e são essenciais para a reepitelização." },
 
 { cat:"Anatomía", tipo:"teoria",
-  q:"¿Cuál es la capa de la piel responsable de la mayor resistencia mecánica?",
-  ops:["Epidermis",
-       "Dermis",
-       "Tejido subcutáneo",
-       "Estrato córneo"],
+  q:"¿Cuál es la capa de la piel con mayor resistencia mecánica?",
+  ops:["Estrato córneo queratinizado",
+       "Dermis media",
+       "Epidermis superficial",
+       "Tejido celular subcutáneo"],
   ok:1,
-  exp:"La dermis es la capa de mayor resistencia mecánica por su rico contenido en colágeno y elastina. Es la capa que suele suturada en la síntesis quirúrgica y la que sufre en las cicatrices patológicas." },
+  exp:"A derme é a camada de maior resistência mecânica por seu rico conteúdo em colágeno e elastina. É a camada suturada na síntese cirúrgica e a que sofre nas cicatrizes patológicas." },
 
 { cat:"Injertos y colgajos", tipo:"teoria",
   q:"¿Cuál es la principal diferencia entre un injerto y un colgajo?",
-  ops:["El injerto tiene vascularización propia; el colgajo depende del lecho",
-       "El injerto depende del lecho para vascularizarse; el colgajo lleva su propia vascularización",
-       "El injerto solo se usa en cara; el colgajo en cualquier zona",
-       "No hay diferencia, son sinónimos"],
-  ok:1,
-  exp:"El injerto no tiene vasos propios y depende del lecho receptor para su vascularización (por imbibición y neovascularización). El colgajo lleva su propia vascularización (pedículo) y por eso se puede usar en lechos mal vascularizados." },
+  ops:["Ninguna diferencia práctica",
+       "El injerto no se vasculariza",
+       "El colgajo lleva su propia vascularización",
+       "Solo difieren en tamaño"],
+  ok:2,
+  exp:"O enxerto não tem vasos próprios e depende do leito receptor para se vascularizar. O retalho leva sua própria vascularização (pedículo), podendo ser usado em leitos mal vascularizados (osso, tendão, cartilagem expostos)." },
 
 { cat:"Injertos y colgajos", tipo:"teoria",
-  q:"¿Cuál es el injerto de espesor total más utilizado en cirugía plástica?",
-  ops:["Injerto de piel parcial de muslo",
-       "Injerto de piel total de párpado",
-       "Injerto de piel total de región retroauricular",
-       "Injerto dermoepidérmico de cuero cabelludo"],
-  ok:2,
-  exp:"El injerto de piel total retroauricular es muy usado en reconstrucción facial (párpados, nariz, oreja) por su color y textura similares, y por su menor retracción que los injertos parciales." },
+  q:"¿Cuál es el injerto de espesor total más usado en cirugía plástica facial?",
+  ops:["Injerto parcial de muslo",
+       "Injerto parcial de abdomen",
+       "Injerto total de planta",
+       "Retroauricular total"],
+  ok:3,
+  exp:"O enxerto de pele total retroauricular é muito usado em reconstrução facial (pálpebras, nariz, orelha) por sua cor e textura semelhantes, com menor retração que os enxertos parciais." },
 
 { cat:"Injertos y colgajos", tipo:"teoria",
   q:"¿Cuál es la principal desventaja del injerto de piel parcial frente al de espesor total?",
   ops:["Mayor retracción y peor resultado estético",
-       "No se puede usar en grandes superficies",
-       "Não é viável em leito bem vascularizado",
-       "Não permite reepitelização"],
+       "No permite cubrir grandes áreas",
+       "No se usa en lechos vascularizados",
+       "Impossibilita la reepitelización"],
   ok:0,
-  exp:"Os enxertos de espessura parcial (ou seja, epiderme + parte da derme) apresentam maior retração cicatricial e pior resultado estético do que os de espessura total. Porém, permitem cobrir grandes áreas e a área doadora reepiteliza." },
+  exp:"Os enxertos de espessura parcial (epiderme + parte da derme) têm maior retração cicatricial e pior resultado estético que os de espessura total. Porém, permitem cobrir grandes áreas e a área doadora reepiteliza." },
 
 { cat:"Injertos y colgajos", tipo:"teoria",
   q:"¿Qué es un colgajo de rotación?",
-  ops:["Colgajo que avança sem girar, em torno de um pedículo central",
-       "Colgajo que gira em torno de seu pedículo para cobrir um defeito adjacente",
-       "Colgajo livre microvascularizado",
-       "Colgajo de tecido muscular exclusivamente"],
+  ops:["Avance sin girar sobre pedículo central",
+       "Gira en torno a su pedículo",
+       "Colgajo libre microvascularizado",
+       "Colgajo exclusivamente muscular"],
   ok:1,
-  exp:"O colgajo de rotação é um retalho que gira em torno de seu pedículo para cobrir um defeito adjacente. O defeito da área doadora geralmente é fechado por primeira intenção ou com enxerto." },
+  exp:"O retalho de rotação gira em torno de seu pedículo para cobrir defeito adjacente. A área doadora geralmente é fechada por primeira intenção ou com enxerto." },
 
 { cat:"Injertos y colgajos", tipo:"teoria",
   q:"¿Qué es un colgajo libre?",
-  ops:["Colgajo que permanece na área doadora",
-       "Colgajo seccionado e transferido com microanastomose vascular",
-       "Colgajo de pele fina sem vasos",
-       "Colgajo que não precisa de vasos"],
-  ok:1,
-  exp:"O colgajo livre é seccionado da área doadora e transferido para a área receptora com reconstrução microcirúrgica dos vasos (artéria e veia). Exemplo: retalho radial do antebraço, retalho anterolateral da coxa (ALT), retalho de grande dorsal." },
+  ops:["Con microanastomosis",
+       "Permanece en el sitio donante",
+       "Colgajo de piel fina sin vasos",
+       "No precisa de vasos propios"],
+  ok:0,
+  exp:"O retalho livre é seccionado da área doadora e transferido com reconstrução microcirúrgica dos vasos (artéria e veia). Exemplos: retalho radial do antebraço, ALT, grande dorsal." },
 
 { cat:"Injertos y colgajos", tipo:"teoria",
-  q:"¿Cuál es el principal fator determinante da sobrevida de um enxerto de pele?",
-  ops:["Vascularização do leito receptor",
-       "Cor da pele do doador",
-       "Espessura do enxerto exclusivamente",
-       "Tamanho da área doadora"],
-  ok:0,
-  exp:"A vascularização do leito receptor é o principal fator para a sobrevida do enxerto. Leitos com má perfusão (osso exposto, tendão sem paratendão, cartilagem) não são adequados para enxerto e exigem colgajo." },
+  q:"¿Cuál es el principal factor determinante de la supervivencia del injerto?",
+  ops:["Cor de la piel del donante",
+       "Tamaño del injerto",
+       "Vascularización del lecho",
+       "Espessura do enxerto"],
+  ok:2,
+  exp:"A vascularização do leito receptor é o principal fator para a sobrevida do enxerto. Leitos com má perfusão (osso exposto, tendão sem paratendão, cartilagem) exigem retalho, não enxerto." },
 
 { cat:"Cicatrización", tipo:"teoria",
-  q:"¿Qué é a cicatrização por primeira intenção?",
-  ops:["Fechamento de ferida com bordas aproximadas por sutura",
-       "Cicatrização por segunda intenção, sem sutura",
-       "Uso de enxerto para cobrir o defeito",
-       "Cicatrização apenas em mucosa"],
-  ok:0,
-  exp:"A cicatrização por primeira intenção ocorre quando as bordas da ferida são aproximadas cirurgicamente, com mínima formação de tecido de granulação e cicatriz fina. Exemplo: ferida cirúrgica suturada." },
+  q:"¿Qué es la cicatrización por primera intención?",
+  ops:["Cicatrização espontânea sem sutura",
+       "Uso de enxerto para cobrir",
+       "Cicatrização apenas em mucosa",
+       "Fechamento com bordas aproximadas por sutura"],
+  ok:3,
+  exp:"A cicatrização por primeira intenção ocorre quando as bordas da ferida são aproximadas cirurgicamente, com mínima formação de tecido de granulação e cicatriz fina." },
 
-{ cat:"Cicatrização", tipo:"teoria",
-  q:"¿Cuál é a principal diferença entre cicatriz hipertrófica e queloide?",
-  ops:["São sinônimos",
-       "A cicatriz hipertrófica respeita os limites da ferida; o queloide ultrapassa os limites",
-       "O queloide respeita os limites e a hipertrófica não",
-       "O queloide ocorre apenas no tronco"],
+{ cat:"Cicatrización", tipo:"teoria",
+  q:"¿Cuál es la diferencia clave entre cicatriz hipertrófica y queloide?",
+  ops:["La hipertrófica respeta los límites",
+       "El queloide los ultrapassa",
+       "Son exactamente sinónimos",
+       "Solo se diferencian por el color"],
   ok:1,
-  exp:"A cicatriz hipertrófica fica restrita aos limites da ferida original e tende a regredir com o tempo. O queloide ultrapassa os limites da ferida original, tem crescimento progressivo e alta taxa de recidiva após excisão." },
-
-{ cat:"Cicatrización", tipo:"caso",
-  q:"Paciente de 25 anos, negro, apresenta cicatriz elevada e pruriginosa em lóbulo da orelha após piercing, ultrapassando os limites originais. Qual é o diagnóstico e o tratamento inicial?",
-  ops:["Cicatriz hipertrófica - corticoide tópico",
-       "Queloide - excisão + corticoide intralesional ou compressão",
-       "Cicatriz normal - observação",
-       "Infecção - antibiótico"],
-  ok:1,
-  exp:"Cicatriz que ultrapassa os limites originais em paciente predisposto (negro, jovem) é queloide. O tratamento inclui excisão cirúrgica associada a corticoide intralesional, compressão, silicone ou radioterapia para reduzir recidiva." },
+  exp:"A cicatriz hipertrófica fica restrita aos limites da ferida original e tende a regredir. O queloide ultrapassa os limites, tem crescimento progressivo e alta taxa de recidiva após excisão." },
 
 { cat:"Cáncer de piel", tipo:"teoria",
-  q:"¿Cuál é o câncer de pele mais comum no mundo?",
-  ops:["Melanoma",
-       "Carcinoma basocelular",
+  q:"¿Cuál es el cáncer de piel más común en el mundo?",
+  ops:["Melanoma cutáneo",
        "Carcinoma espinocelular",
-       "Linfoma cutâneo"],
-  ok:1,
+       "Linfoma cutâneo de células T",
+       "Carcinoma basocelular"],
+  ok:3,
   exp:"O carcinoma basocelular é o câncer de pele mais comum no mundo, especialmente em áreas fotoexpostas de adultos e idosos. Tem crescimento lento, raramente metastatiza, mas pode ser localmente invasivo." },
 
 { cat:"Cáncer de piel", tipo:"teoria",
-  q:"¿Cuál é o principal fator prognóstico do melanoma cutâneo?",
-  ops:["Cor do paciente",
-       "Espessura de Breslow (profundidade de invasão em mm)",
-       "Tamanho da lesão visível",
-       "Localização no corpo"],
-  ok:1,
-  exp:"A espessura de Breslow (medida da camada granulosa até o ponto mais profundo de invasão, em mm) é o principal fator prognóstico do melanoma cutâneo. Complementa-se com níveis de Clark, ulceração e índice mitótico." },
+  q:"¿Cuál es el principal factor pronóstico del melanoma cutáneo?",
+  ops:["Espessura de Breslow em milímetros",
+       "Cor da pele do paciente",
+       "Tamanho visível da lesão",
+       "Localização anatômica no corpo"],
+  ok:0,
+  exp:"A espessura de Breslow (da camada granulosa até o ponto mais profundo de invasão, em mm) é o principal fator prognóstico do melanoma cutâneo. Complementa-se com níveis de Clark, ulceração e índice mitótico." },
+
+{ cat:"Cicatrización", tipo:"caso",
+  q:"Paciente joven con cicatriz elevada en lóbulo de la oreja tras piercing, que ultrapassa los límites. ¿Diagnóstico y tratamiento?",
+  ops:["Hipertrófica, apenas corticoide tópico",
+       "Normal, somente observar",
+       "Queloide, excisão + corticoide",
+       "Infecção, antibiótico oral"],
+  ok:2,
+  exp:"Cicatriz que ultrapassa os limites originais em paciente predisposto (negro, jovem) é queloide. Tratamento: excisão cirúrgica + corticoide intralesional, compressão, silicone ou radioterapia (para reduzir recidiva)." },
 
 { cat:"Cáncer de piel", tipo:"caso",
-  q:"Paciente de 62 anos, agricultor, apresenta lesão ulcerada em dorso nasal de 1,5 cm, bordas elevadas peroladas, telangiectasias, crescimento lento há 2 anos. Qual é o diagnóstico e o tratamento?",
+  q:"Paciente mayor, agricultor, lesión ulcerada perolada en dorso nasal con telangiectasias. ¿Diagnóstico y tratamiento?",
   ops:["Melanoma - ampliação de margem",
-       "Carcinoma basocelular - excisão com margem de 4-5 mm",
-       "Carcinoma espinocelular - radioterapia",
+       "Basocelular - excisão 4-5 mm",
+       "Espinocelular - radioterapia",
        "Ceratose actínica - crioterapia"],
   ok:1,
-  exp:"Lesão perolada, ulcerada, com telangiectasias em área fotoexposta é típica de carcinoma basocelular. O tratamento padrão é excisão cirúrgica com margem de 4-5 mm e confirmação histológica. Em locais delicados (pálpebra, nariz), a cirurgia de Mohs é uma opção." }
+  exp:"Lesão perolada, ulcerada, com telangiectasias em área fotoexposta é típica de carcinoma basocelular. Tratamento: excisão cirúrgica com margem de 4-5 mm + confirmação histológica. Em locais delicados, cirurgia de Mohs." }
 
 ];
+
+/* ========= DIAGNÓSTICO DE VÍCIOS ========= */
+function diagnosticar(lista) {
+  const tamanos = lista.map(p => {
+    const lens = p.ops.map(o => o.length);
+    const minL = Math.min(...lens);
+    const maxL = Math.max(...lens);
+    const okL = lens[p.ok];
+    const qtdMin = lens.filter(l => l === minL).length;
+    const qtdMax = lens.filter(l => l === maxL).length;
+    if (okL === minL && qtdMin === 1) return 'corta';
+    if (okL === maxL && qtdMax === 1) return 'larga';
+    return 'media';
+  });
+  const dist = tamanos.reduce((a, t) => { a[t] = (a[t] || 0) + 1; return a; }, {});
+  console.log('=== Distribución del LARGO de la correcta ===');
+  console.log('Corta (más corta que las demás):', dist.corta || 0);
+  console.log('Media (ni la más corta ni la más larga):', dist.media || 0);
+  console.log('Larga (más larga que las demás):', dist.larga || 0);
+  console.log('Total:', lista.length);
+}
 
 const cont = document.getElementById('quiz');
 const marcador = document.getElementById('marcador');
@@ -261,6 +282,7 @@ function construir(){
     p.ops.forEach((op,j)=>{const b=document.createElement('button');b.className='opcion';b.innerHTML=`<span class="letra">${'ABCD'[j]}</span><span>${op}</span>`;b.addEventListener('click',()=>responder(card,caja,exp,p,j));caja.appendChild(b);});
     card.appendChild(caja);card.appendChild(exp);cont.appendChild(card);
   });
+  diagnosticar(lote);
 }
 construir();
 </script>
