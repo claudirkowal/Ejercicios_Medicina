@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pares Craneales — Nombres, Clasificación, Funciones y Estimulación</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --accent-dark: #1e40af;
+      --border: #e5e7eb;
+      --shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --label: #6b7280;
+      --sensory-bg: #ecfdf5;
+      --sensory-text: #047857;
+      --motor-bg: #eff6ff;
+      --motor-text: #1d4ed8;
+      --mixed-bg: #fef3c7;
+      --mixed-text: #92400e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .page-header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 1rem;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 2.5rem;
+    }
+
+    .nerve-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--accent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.3rem 1.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .nerve-card h2 {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.65rem;
+      margin: 0 0 1rem;
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .nerve-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    .badge-sensory {
+      background: var(--sensory-bg);
+      color: var(--sensory-text);
+    }
+
+    .badge-motor {
+      background: var(--motor-bg);
+      color: var(--motor-text);
+    }
+
+    .badge-mixed {
+      background: var(--mixed-bg);
+      color: var(--mixed-text);
+    }
+
+    .block {
+      margin-bottom: 1rem;
+    }
+
+    .block:last-child {
+      margin-bottom: 0;
+    }
+
+    .block-label {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--label);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .block p {
+      margin: 0;
+    }
+
+    .block ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .block li {
+      margin-bottom: 0.35rem;
+    }
+
+    .block li:last-child {
+      margin-bottom: 0;
+    }
+
+    .page-footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .page-header {
+        padding-top: 1.75rem;
+      }
+
+      .container {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+      }
+
+      .nerve-card {
+        padding: 1rem 1.05rem;
+      }
+
+      .nerve-card h2 {
+        font-size: 1.08rem;
+      }
+
+      .nerve-number {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1>Pares Craneales — Nombres, Clasificación, Funciones y Estimulación</h1>
+    <p class="subtitle">
+      Clasificación funcional, funciones detalladas y cómo estimular cada nervio en el examen clínico.
+    </p>
+  </header>
+
+  <main class="container">
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">I</span> Olfatorio
+        <span class="badge badge-sensory">Sensitivo</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Responsable exclusivamente del <strong>olfato</strong>. Sus receptores se encuentran en el epitelio olfatorio del techo de la cavidad nasal y envían información directamente al bulbo olfatorio, sin pasar por el tálamo. Es el único par craneal que no pasa por el tronco encefálico.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Ocluir una fosa nasal y presentar olores comunes y <strong>no irritantes</strong> (café, vainilla, jabón, clavo).</li>
+          <li>Pedir al paciente que identifique el olor y repetir en la otra fosa nasal.</li>
+          <li>Evitar alcohol, amoníaco o sustancias que estimulen terminaciones trigeminales.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">II</span> Óptico
+        <span class="badge badge-sensory">Sensitivo</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Responsable de la <strong>visión</strong>. Conduce los estímulos visuales de la retina al quiasma óptico y, después, al cuerpo geniculado lateral y a la corteza occipital. También es la vía <strong>aferente</strong> del reflejo pupilar a la luz.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Evaluar agudeza visual con la tabla de Snellen.</li>
+          <li>Explorar campos visuales por confrontación en los cuatro cuadrantes.</li>
+          <li>Estimular el reflejo fotomotor con linterna: la vía aferente es el II par.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">III</span> Oculomotor (o motor ocular común)
+        <span class="badge badge-motor">Motor</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Tiene dos funciones distintas. <strong>Motora somática:</strong> mueve la mayoría de los músculos extrínsecos del ojo —recto superior, recto medial, recto inferior y oblicuo inferior— y el músculo elevador del párpado. <strong>Parasimpática:</strong> inerva el esfínter de la pupila (constricción) y el músculo ciliar (acomodación para cerca). La lesión causa ptosis, ojo desviado hacia fuera y hacia abajo, midriasis y pérdida del reflejo fotomotor.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Observar ptosis y posición del ojo en reposo.</li>
+          <li>Pedir que siga un objeto en las direcciones: arriba, abajo y hacia dentro.</li>
+          <li>Explorar el reflejo pupilar a la luz (eferente) y el reflejo de acomodación.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">IV</span> Troclear (o patético)
+        <span class="badge badge-motor">Motor</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Inerva únicamente el <strong>músculo oblicuo superior</strong>. Su función es mover el ojo hacia <strong>abajo y hacia dentro</strong> (depresión e intorsión). La lesión típica causa diplopía al bajar escaleras o leer, con inclinación compensatoria de la cabeza.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Con el paciente siguiendo un objeto, evaluar el movimiento del ojo hacia abajo y hacia dentro.</li>
+          <li>Buscar diplopía al mirar hacia abajo.</li>
+          <li>Si es necesario, explorar la inclinación de la cabeza (prueba de Bielschowsky).</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">V</span> Trigémino
+        <span class="badge badge-mixed">Mixto</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Nervio mixto con tres divisiones (V1 oftálmica, V2 maxilar, V3 mandibular). <strong>Sensibilidad:</strong> cara, córnea, conjuntiva, mucosa nasal, senos paranasales, dientes, encías, mucosa oral y articulación temporomandibular; es la <strong>aferencia</strong> del reflejo corneal. <strong>Motricidad:</strong> músculos de la masticación (masetero, temporal, pterigoideos medial y lateral), milohioideo y vientre anterior del digástrico.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Explorar sensibilidad táctil y dolorosa en las tres divisiones (V1, V2, V3) bilateralmente.</li>
+          <li>Estimular la córnea con algodón para el reflejo corneal (aferencia).</li>
+          <li>Pedir que apriete los dientes y palpar el masetero; abrir la boca contra resistencia y observar desviaciones.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">VI</span> Abducens (o motor ocular externo)
+        <span class="badge badge-motor">Motor</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Inerva el <strong>músculo recto lateral</strong>. Su única función es <strong>abducir el ojo</strong> (mirar hacia fuera). Es el nervio craneal con el trayecto intracraneal más largo, por lo que con frecuencia se ve afectado por hipertensión intracraneal. La lesión genera estrabismo convergente y diplopía al mirar hacia el lado de la lesión.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Pedir que mire lateralmente hacia cada lado.</li>
+          <li>Evaluar limitación de la abducción y presencia de diplopía.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">VII</span> Facial
+        <span class="badge badge-mixed">Mixto</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Nervio mixto con tres componentes. <strong>Motora somática:</strong> músculos de la mímica facial (frontal, orbicular de los ojos, cigomáticos, buccinador, orbicular de los labios, platisma) y músculo estapedio. <strong>Sensitiva especial:</strong> gusto en los <strong>2/3 anteriores de la lengua</strong>, vía cuerda del tímpano. <strong>Parasimpática:</strong> glándulas lagrimales y salivales submandibular y sublingual. La lesión alta puede causar ojo seco y pérdida del gusto anterior.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Observar simetría al sonreír, arrugar la frente y cerrar los ojos con fuerza.</li>
+          <li>Explorar el gusto en la mitad anterior de la lengua, si está indicado.</li>
+          <li>Evaluar el reflejo corneal como eferencia (cierre del ojo).</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">VIII</span> Vestibulococlear (o auditivo)
+        <span class="badge badge-sensory">Sensitivo</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Tiene dos porciones independientes. <strong>Coclear:</strong> audición, conduciendo estímulos sonoros de la cóclea al tronco y a la corteza auditiva. <strong>Vestibular:</strong> equilibrio y percepción de la posición de la cabeza, detectando aceleración lineal (utrículo y sáculo) y angular (conductos semicirculares). La lesión causa vértigo, nistagmo y desequilibrio.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Audición: prueba con susurro o fricción de los dedos cerca de cada oído.</li>
+          <li>Si está alterado, usar diapasón (Rinne y Weber).</li>
+          <li>Vestibular: investigar nistagmo y, si hay vértigo posicional, realizar la maniobra de Dix-Hallpike.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">IX</span> Glosofaríngeo
+        <span class="badge badge-mixed">Mixto</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Nervio mixto. <strong>Sensitiva especial:</strong> gusto en el <strong>1/3 posterior de la lengua</strong>. <strong>Sensitiva general:</strong> faringe, amígdalas, úvula, trompa auditiva, seno carotídeo (barorreceptores) y glomo carotídeo (quimiorreceptores). <strong>Motora:</strong> músculo estilofaríngeo. <strong>Parasimpática:</strong> glándula parótida. Es la <strong>aferencia</strong> del reflejo nauseoso.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Observar elevación simétrica del paladar al decir “ah”.</li>
+          <li>Explorar el reflejo nauseoso tocando la pared posterior de la faringe (aferencia).</li>
+          <li>Si es necesario, explorar el gusto en el tercio posterior de la lengua.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">X</span> Vago (o neumogástrico)
+        <span class="badge badge-mixed">Mixto</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>El nervio de mayor distribución en el cuerpo. <strong>Motora somática:</strong> músculos de la faringe y la laringe (fonación y deglución). <strong>Parasimpática:</strong> vísceras torácicas (corazón, pulmones) y abdominales hasta el ángulo esplénico del colon, reduciendo la frecuencia cardíaca, promoviendo broncoconstricción y estimulando la secreción y motilidad digestiva. <strong>Sensitiva:</strong> laringe, faringe, esófago y vísceras, además de una pequeña área de la epiglotis. Es la <strong>eferencia</strong> del reflejo nauseoso.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Evaluar la calidad de la voz (ronquera) y la simetría de la elevación del paladar.</li>
+          <li>Explorar el reflejo nauseoso como eferencia.</li>
+          <li>En el paciente intubado, la aspiración traqueal debe desencadenar tos.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">XI</span> Accesorio (o espinal)
+        <span class="badge badge-motor">Motor</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Tiene raíz craneal (bulbar) y espinal. Inerva el <strong>músculo esternocleidomastoideo</strong>, que gira la cabeza hacia el lado opuesto y la inclina hacia el mismo lado, y el <strong>músculo trapecio</strong>, que eleva el hombro, retrae la escápula y auxilia en la extensión del cuello. La lesión causa caída del hombro, dificultad para elevar el brazo por encima de la cabeza y debilidad al girar la cabeza contra resistencia.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Pedir que gire la cabeza contra resistencia (palpar el esternocleidomastoideo contralateral).</li>
+          <li>Pedir que eleve los hombros contra resistencia (evaluar el trapecio).</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="nerve-card">
+      <h2>
+        <span class="nerve-number">XII</span> Hipogloso
+        <span class="badge badge-motor">Motor</span>
+      </h2>
+      <div class="block">
+        <span class="block-label">Función</span>
+        <p>Inerva todos los músculos <strong>intrínsecos y extrínsecos de la lengua</strong> (excepto el palatogloso, que es del X). Controla los movimientos de la lengua para el habla, la masticación y la deglución. La lesión causa atrofia y fasciculaciones en la hemilengua y <strong>desviación de la lengua hacia el lado de la lesión</strong> al protruirla, porque el músculo geniogloso contralateral empuja sin oposición.</p>
+      </div>
+      <div class="block">
+        <span class="block-label">Cómo estimular</span>
+        <ul>
+          <li>Pedir que protruya la lengua y observar desviación, atrofia o fasciculaciones.</li>
+          <li>Solicitar movimientos laterales de la lengua contra resistencia.</li>
+        </ul>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Material de apoyo clínico — nombres, clasificación, funciones y estimulación de los pares craneales.</p>
+  </footer>
+</body>
+</html>
